@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.readout {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+p {
+  max-width: 200px;
+  padding: 5px;
+  border: 1px solid black;
+}
