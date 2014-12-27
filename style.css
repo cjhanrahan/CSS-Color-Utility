@@ -14,7 +14,7 @@ body {
   padding: 5px;
 }
 
-p {
+.exampleText {
   max-width: 200px;
   padding: 5px;
   border: 1px solid black;
