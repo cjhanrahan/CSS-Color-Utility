@@ -10,8 +10,8 @@ window.onload = function(){
     },
 
     setupInputHandlers: function(){
-      _.nodeForEach('.backgroundForegroundSections', function(section){
-        
+      _.selectorForEach('.backgroundForegroundSections', function(section){
+        var hexInput = section.querySelector('');
       });
     },
 

@@ -3,10 +3,11 @@ body {
 }
 
 .appContainer {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .readout {

@@ -7,41 +7,106 @@
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
+    
+    <h1>CSS Color Utility</h1>
+    
     <div class="appContainer">
-      <h1>CSS Color Utility</h1>
-      <div class="backgroundForegroundSections">
-        <div class="background">
+      <div class="background">
 
-          <h2>Background</h2>
+        <h2>Background</h2>
 
-          <div class="hex inputContainer">
-            <label> Hex
-              <input type="text"/>
+        <div class="hex inputContainer">
+          <label> Hex
+            <input type="text"/>
+          </label>
+        </div>
+
+
+        <div class="rgb inputContainer">
+          <div class="red">
+            <label> Red
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
             </label>
           </div>
 
+          <div class="green">
+            <label> Green
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
+            </label>
+          </div>
 
-          <div class="rgb inputContainer">
-            <div class="hue">
-              <label> Red
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
+          <div class="blue">
+            <label> Blue
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
+            </label>
+          </div>
+        </div>
 
-            <div class="saturation">
-              <label> Green
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
+        <div class="hsl inputContainer">
+          <div class="hue">
+            <label> Hue
+              <input type="range" min="0" max="360" step="1" value="0" data-symbol="\u00b0"/>
+              <div class="readout"></div>
+            </label>
+          </div>
 
-            <div class="lightness">
-              <label> Lightness
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
+          <div class="saturation">
+            <label> Saturation
+              <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"/>
+              <div class="readout"></div>
+            </label>
+          </div>
+
+          <div class="lightness">
+            <label> Lightness
+              <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
+              <div class="readout"></div>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="foreground">
+
+        <h2>Foreground</h2>
+
+        <div class="hex inputContainer">
+          <label> Hex
+            <input type="text"/>
+          </label>
+        </div>
+
+        <div class="rgb inputContainer">
+          <div class="red">
+            <label> Red
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
+            </label>
+          </div>
+
+          <div class="green">
+            <label> Green
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
+            </label>
+          </div>
+
+          <div class="blue">
+            <label> Blue
+              <input type="range" min="0" max="255" step="1" value="255" />
+              <div class="readout"></div>
+            </label>
+          </div>
+
+          <div class="alpha">
+            <label> Alpha
+              <input type="range" min="0" max="1" step="0.01" value="100"/>
+              <div class="readout"></div>
+            </label>
           </div>
         </div>
 
@@ -67,88 +132,26 @@
             </label>
           </div>
 
-        </div>
-
-        <div class="foreground">
-
-          <h2>Foreground</h2>
-
-          <div class="hex inputContainer">
-            <label> Hex
-              <input type="text"/>
+          <div class="alpha">
+            <label> Alpha
+              <input type="range" min="0" max="1" step="0.01" value="100"/>
+              <div class="readout"></div>
             </label>
           </div>
-
-
-          <div class="hsl inputContainer">
-            <div class="hue">
-              <label> Hue
-                <input type="range" min="0" max="360" step="1" value="0" data-symbol="\u00b0"/>
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="saturation">
-              <label> Saturation
-                <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"/>
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="lightness">
-              <label> Lightness
-                <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="alpha">
-              <label> Alpha
-                <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
-                <div class="readout"></div>
-              </label>
-            </div>
-          </div>
-
-          <div class="rgb inputContainer">
-            <div class="hue">
-              <label> Red
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="saturation">
-              <label> Green
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="lightness">
-              <label> Lightness
-                <input type="range" min="0" max="255" step="1" value="255" />
-                <div class="readout"></div>
-              </label>
-            </div>
-
-            <div class="alpha">
-              <label> Alpha
-                <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
-                <div class="readout"></div>
-              </label>
-            </div>
-          </div>
-
         </div>
-   
+
+
       </div>
+
+   
 
       <div class="exampleText">
         <h2>Example heading</h2>
         <p>
           This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
         </p>
-    </div> 
+      </div> 
+
+    </div>
   </body>
 </html>

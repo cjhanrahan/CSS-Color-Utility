@@ -11,8 +11,12 @@ _ = {
     }
   },
 
-  selectorForEach: function(selector, func) {
-    var nodes = document.querySelectorAll(selector);
+  selectorForEach: function(selector, func, parentNode) {
+    
+    if(parentNode === undefined)
+      parentNode = document;
+
+    var nodes = parentNode.querySelectorAll(selector);
 
     Array.prototype.forEach.call(nodes, func);
   }
