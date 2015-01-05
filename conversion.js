@@ -1,5 +1,10 @@
 window.Convert = {
 
+  rgbToHslString: function(red, green, blue) {
+    var hue = Convert.rgbToHue(red, green, blue);
+    var saturation =  Convert.rgbToSaturation(red, green, blue);
+    var lightness = Convert.rgbToLightness(red, green, blue) + ")";
+  },
 
   rgbToHue: function(red, green, blue) {
     var maxColor = Math.max(red, green, blue);

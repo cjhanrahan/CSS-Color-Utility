@@ -18,7 +18,7 @@
 
         <div class="inputSystem" data-input-system="hex">
           <label> Hex
-            <input type="text" value="FFF"/>
+            <input type="text" value="FFF" maxlength="6"/>
           </label>
         </div>
 
@@ -77,28 +77,28 @@
 
         <div class="inputSystem" data-input-system="hex">
           <label> Hex
-            <input type="text" value="FFF"/>
+            <input type="text" value="000" maxlength="6"/>
           </label>
         </div>
 
         <div class="inputSystem" data-input-system="rgb">
           <div class="red">
             <label> Red
-              <input type="range" min="0" max="255" step="1" value="255" />
+              <input type="range" min="0" max="255" step="1" value="0" />
               <div class="readout"></div>
             </label>
           </div>
 
           <div class="green">
             <label> Green
-              <input type="range" min="0" max="255" step="1" value="255" />
+              <input type="range" min="0" max="255" step="1" value="0" />
               <div class="readout"></div>
             </label>
           </div>
 
           <div class="blue">
             <label> Blue
-              <input type="range" min="0" max="255" step="1" value="255" />
+              <input type="range" min="0" max="255" step="1" value="0" />
               <div class="readout"></div>
             </label>
           </div>
@@ -145,15 +145,19 @@
       </div>
 
    
+      <div class="colorSample">
+        <h2>Color Sample</h2>
+        <div class="exampleText">
+          <h3>Example heading</h3>
+          <p>
+            This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
+          </p>
+        </div> 
+      </div>
 
-      <div class="exampleText">
-        <h2>Example heading</h2>
-        <p>
-          This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
-        </p>
-      </div> 
-
-      <div class="validationHint">Validation text goes here
+      <div class="validationSection">
+        <h2> Validation </h2>
+        <p class="validationOutput"></p>
       </div>
 
     </div>

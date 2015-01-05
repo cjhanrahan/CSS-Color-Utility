@@ -24,3 +24,9 @@ input[type="text"] {
   padding: 5px;
   border: 1px solid black;
 }
+
+.validationOutput {
+  border: 1px solid black;
+  width: 200px;
+  min-height: 50px;
+}
