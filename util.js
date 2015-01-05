@@ -1,9 +1,5 @@
 _ = {
 
-  //
-  // OBJECTS
-  //
-
   objectForEach: function(object, func) {
     for (var attribute in object) {
       if(object.hasOwnProperty(attribute))
@@ -19,5 +15,9 @@ _ = {
     var nodes = parentNode.querySelectorAll(selector);
 
     Array.prototype.forEach.call(nodes, func);
+  },
+
+  nodeListForEach: function(nodeList, func) {
+    Array.prototype.forEach.call(nodeList, func);
   }
 };

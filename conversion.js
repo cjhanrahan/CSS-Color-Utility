@@ -1,5 +1,6 @@
 window.Convert = {
 
+
   rgbToHue: function(red, green, blue) {
     var maxColor = Math.max(red, green, blue);
     var normalizedRed = red / 255;

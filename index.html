@@ -12,18 +12,18 @@
     <h1>CSS Color Utility</h1>
     
     <div class="appContainer">
-      <div class="background">
+      <div class="background" data-css-property="backgroundColor">
 
         <h2>Background</h2>
 
-        <div class="hex inputSystem">
+        <div class="inputSystem" data-input-system="hex">
           <label> Hex
-            <input type="text"/>
+            <input type="text" value="FFF"/>
           </label>
         </div>
 
 
-        <div class="rgb inputSystem">
+        <div class="inputSystem" data-input-system="rgb">
           <div class="red">
             <label> Red
               <input type="range" min="0" max="255" step="1" value="255" />
@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        <div class="hsl inputSystem">
+        <div class="inputSystem" data-input-system="hsl">
           <div class="hue">
             <label> Hue
               <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
@@ -71,17 +71,17 @@
 
       </div>
 
-      <div class="foreground">
+      <div class="foreground" data-css-property="color">
 
         <h2>Foreground</h2>
 
-        <div class="hex inputSystem">
+        <div class="inputSystem" data-input-system="hex">
           <label> Hex
-            <input type="text"/>
+            <input type="text" value="FFF"/>
           </label>
         </div>
 
-        <div class="rgb inputSystem">
+        <div class="inputSystem" data-input-system="rgb">
           <div class="red">
             <label> Red
               <input type="range" min="0" max="255" step="1" value="255" />
@@ -111,7 +111,7 @@
           </div>
         </div>
 
-        <div class="hsl inputSystem">
+        <div class="inputSystem" data-input-system="hsl">
           <div class="hue">
             <label> Hue
               <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
@@ -152,6 +152,9 @@
           This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
         </p>
       </div> 
+
+      <div class="validationHint">Validation text goes here
+      </div>
 
     </div>
   </body>
