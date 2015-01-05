@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"min",
+				"minColor"
+			],
+			[
+				"max",
+				"maxColor"
+			],
+			[
+				"upda",
+				"updateExampleText"
+			],
+			[
+				"get",
+				"getInputValue"
+			],
+			[
+				"inpu",
+				"inputs"
+			],
+			[
+				"func",
+				"func"
+			],
+			[
+				"input",
+				"inputName"
+			],
+			[
 				"pro",
 				"propertiesToApply"
 			],
@@ -54,10 +82,6 @@
 			[
 				"prop",
 				"property"
-			],
-			[
-				"inpu",
-				"inputHandler"
 			],
 			[
 				"nodeN",
@@ -124,10 +148,6 @@
 				"focusOnNextSibling"
 			],
 			[
-				"get",
-				"getCurrentNode"
-			],
-			[
 				"foc",
 				"focusOnPrevSibling"
 			],
@@ -184,21 +204,19 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "util.js",
 			"settings":
 			{
-				"buffer_size": 25,
+				"buffer_size": 432,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Package Control Messages\n========================\n\nSublimeLinter:\n-------------\n\n  SublimeLinter\n  =============\n  \n  SublimeLinter is a plugin that supports \"lint\" programs (known as \"linters\"). SublimeLinter highlights\n  lines of code the linter deems to contain (potential) errors. It also\n  supports highlighting special annotations (for example: TODO) so that they\n  can be quickly located.\n  \n  SublimeLinter has built in linters for the following languages:\n  \n  * C/C++ - lint via `cppcheck`\n  * CoffeeScript - lint via `coffee -s -l`\n  * CSS - lint via built-in [csslint](http://csslint.net)\n  * Git Commit Messages - lint via built-in module based on [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).\n  * Haml - syntax check via `haml -c`\n  * HTML - lint via `tidy` (actually [tidy for HTML5](http://w3c.github.com/tidy-html5/))\n  * Java - lint via `javac -Xlint`\n  * JavaScript - lint via built in [jshint](http://jshint.org), [jslint](http://jslint.com), or the [closure linter (gjslint)](https://developers.google.com/closure/utilities/docs/linter_howto) (if installed)\n  * Lua - syntax check via `luac`\n  * Objective-J - lint via built-in [capp_lint](https://github.com/aparajita/capp_lint)\n  * Perl - lint via [Perl:Critic](http://perlcritic.com/) or syntax+deprecation check via `perl -c`\n  * PHP - syntax check via `php -l`\n  * Puppet - syntax check via `puppet parser validate`\n  * Python - native, moderately-complete lint\n  * Ruby - syntax check via `ruby -wc`\n  * XML - lint via `xmllint`\n  \n  \n  For more information:\n  ---------------------\n  Please take the time to read the documentation:\n  \n  * Online - https://github.com/SublimeLinter/SublimeLinter\n  * Sublime Text - Select Preferences->Package Settings->SublimeLinter->README\n  \n  \n  IMPORTANT\n  \n  Do NOT edit the default SublimeLinter settings. Your changes will be lost\n  when SublimeLinter is updated. ALWAYS edit the user SublimeLinter settings\n  by selecting \"Preferences->Package Settings->SublimeLinter->Settings - User\".\n  Note that individual settings you include in your user settings will **completely**\n  replace the corresponding default setting, so you must provide that setting in its entirety.\n  \n",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 2250,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"scratch": true
+				"buffer_size": 381,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -210,10 +228,37 @@
 			}
 		},
 		{
-			"file": "/home/conor/Programming/web/TreeView/index.html",
+			"file": "style.css",
 			"settings":
 			{
-				"buffer_size": 876,
+				"buffer_size": 304,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4590,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "window.Convert = {\n\n  rgbToHue: function(red, green, blue) {\n    var minColor = Math.min(red, green, blue);\n    var maxColor = Math.max(red, green, blue);\n    var chroma = maxColor - minColor;\n    var hexagonalHue;\n    \n    if(chroma === 0) {\n      return null;\n    }\n\n    else if(maxColor === red) {\n      var pureRedHexagonalHue = 0;\n      hexagonalHue = (green - blue) / chroma + pureRedHexagonalHue;\n      \n      if(hexagonalHue === 6)\n        hexagonalHue = 0;\n    }\n\n    else if(maxColor === green) {\n      var pureGreenHexagonalHue = 2;\n      hexagonalHue = (blue - red) / chroma + pureGreenHexagonalHue;\n    }\n\n    else if(maxColor === blue) {\n      var pureBlueHexagonalHue = 4;\n      hexagonalHue = (red - green) / chroma + pureBlueHexagonalHue;\n    }\n\n    return hexagonalHue * 60;\n  },\n\n  rgbToSaturation: function(red, green, blue) {\n    var minColor = Math.min(red, green, blue);\n    var maxColor = Math.max(red, green, blue);\n    \n    var chroma = maxColor - minColor;\n    var lightness = rgbToLightness(red, green, blue);\n    \n    var \n\n\n  },\n\n  rgbToLightness: function(red, green, blue) {\n    var minColor = Math.min(red, green, blue);\n    var maxColor = Math.max(red, green, blue);\n\n    return (1/2) * (minColor + maxColor);\n  }\n};",
+			"file": "conversion.js",
+			"file_size": 1231,
+			"file_write_time": 1419916293000000,
+			"settings":
+			{
+				"buffer_size": 1250,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/conor/.config/sublime-text-2/Packages/User/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 62,
 				"line_ending": "Unix"
 			}
 		}
@@ -282,11 +327,17 @@
 	},
 	"file_history":
 	[
+		"/home/conor/Programming/web/CSSCU/app.js",
+		"/home/conor/Programming/web/CSSCU/style.css",
+		"/home/conor/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/conor/Programming/web/TreeView/index.html",
+		"/home/conor/.config/sublime-text-2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/conor/Programming/web/CSSCU/csscu.sublime-workspace",
+		"/home/conor/Programming/web/CSSCU/csscu.sublime-project",
 		"/home/conor/.config/sublime-text-2/Packages/SublimeOnSaveBuild/SublimeOnSaveBuild.sublime-settings",
 		"/home/conor/Programming/web/TreeView/server/nginx.conf",
 		"/home/conor/Programming/web/TreeView/dev/src/app.js",
 		"/home/conor/Programming/web/TreeView/dev/src/listbuilder.js",
-		"/home/conor/Programming/web/TreeView/index.html",
 		"/home/conor/Programming/web/TreeView/dev/css/_listbuilder.scss",
 		"/home/conor/Programming/web/TreeView/dev/css/treeview.scss",
 		"/home/conor/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
@@ -357,6 +408,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"normalized",
+			"360",
+			"inputContainer",
+			" class=\"lightness\"",
+			"class=\"saturation\"",
+			".nodes.",
+			" {",
+			"updateCurrentValue",
+			"i",
+			"_",
+			"readout:",
+			"readout",
+			"slider",
+			"_.nodes.",
+			"currentValue",
+			"input",
+			"U",
+			"u",
+			"U",
+			"Lightness",
+			"Slider",
+			"hue",
+			"saturation",
+			"hue",
+			"saturation",
+			"Saturation",
+			"saturation",
+			"Saturation",
+			"saturation",
+			"Hue",
+			"hue",
+			"inline",
 			"dCutive",
 			"    ",
 			";\n",
@@ -390,10 +473,13 @@
 		],
 		"highlight": true,
 		"in_selection": false,
-		"preserve_case": false,
+		"preserve_case": true,
 		"regex": true,
 		"replace_history":
 		[
+			"hexagonal",
+			"inputSystem",
+			"_",
 			"cause",
 			"className",
 			"buildNode",
@@ -415,23 +501,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "util.js",
 					"settings":
 					{
-						"buffer_size": 25,
+						"buffer_size": 432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22,
-								22
+								321,
+								321
 							]
 						],
 						"settings":
@@ -444,37 +530,7 @@
 							],
 							"csslint_options":
 							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
+								"known-properties": false
 							},
 							"gjslint_ignore":
 							[
@@ -525,7 +581,9 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -535,26 +593,87 @@
 				},
 				{
 					"buffer": 1,
+					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 2250,
+						"buffer_size": 381,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								929,
-								929
+								44,
+								44
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"known-properties": false
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -571,8 +690,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								8509,
+								8509
 							]
 						],
 						"settings":
@@ -585,37 +704,7 @@
 							],
 							"csslint_options":
 							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
+								"known-properties": false
 							},
 							"gjslint_ignore":
 							[
@@ -671,32 +760,350 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/conor/Programming/web/TreeView/index.html",
+					"file": "style.css",
 					"settings":
 					{
-						"buffer_size": 876,
+						"buffer_size": 304,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								163,
+								163
 							]
 						],
 						"settings":
 						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"known-properties": false
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 4590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								259,
+								259
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"known-properties": false
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "conversion.js",
+					"settings":
+					{
+						"buffer_size": 1250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								687,
+								687
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"known-properties": false
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/conor/.config/sublime-text-2/Packages/User/SublimeLinter.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 62,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"known-properties": false
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -744,7 +1151,7 @@
 	},
 	"replace":
 	{
-		"height": 62.0
+		"height": 105.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -752,6 +1159,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"s",
+				"style.css"
+			],
+			[
+				"st",
+				"style.css"
+			],
+			[
+				"sty",
+				"style.css"
+			],
 			[
 				"util",
 				"dev/css/_utils.scss"
@@ -815,10 +1238,6 @@
 			[
 				"grunt",
 				"Gruntfile.js"
-			],
-			[
-				"st",
-				"server/start_serv.sh"
 			],
 			[
 				"list",
@@ -905,10 +1324,6 @@
 				"Gruntfile.js"
 			],
 			[
-				"ind",
-				"/home/conor/Programming/web/pz/index.html"
-			],
-			[
 				"su",
 				"treeview.sublime-project"
 			],
@@ -954,10 +1369,6 @@
 			],
 			[
 				"sta",
-				"server/start_serv.sh"
-			],
-			[
-				"s",
 				"server/start_serv.sh"
 			],
 			[

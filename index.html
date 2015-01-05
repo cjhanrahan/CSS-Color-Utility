@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>CSS Color Utility</title>
     <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript" src="conversion.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
@@ -15,14 +16,14 @@
 
         <h2>Background</h2>
 
-        <div class="hex inputContainer">
+        <div class="hex inputSystem">
           <label> Hex
             <input type="text"/>
           </label>
         </div>
 
 
-        <div class="rgb inputContainer">
+        <div class="rgb inputSystem">
           <div class="red">
             <label> Red
               <input type="range" min="0" max="255" step="1" value="255" />
@@ -45,10 +46,10 @@
           </div>
         </div>
 
-        <div class="hsl inputContainer">
+        <div class="hsl inputSystem">
           <div class="hue">
             <label> Hue
-              <input type="range" min="0" max="360" step="1" value="0" data-symbol="\u00b0"/>
+              <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
               <div class="readout"></div>
             </label>
           </div>
@@ -74,13 +75,13 @@
 
         <h2>Foreground</h2>
 
-        <div class="hex inputContainer">
+        <div class="hex inputSystem">
           <label> Hex
             <input type="text"/>
           </label>
         </div>
 
-        <div class="rgb inputContainer">
+        <div class="rgb inputSystem">
           <div class="red">
             <label> Red
               <input type="range" min="0" max="255" step="1" value="255" />
@@ -110,10 +111,10 @@
           </div>
         </div>
 
-        <div class="hsl inputContainer">
+        <div class="hsl inputSystem">
           <div class="hue">
             <label> Hue
-              <input type="range" min="0" max="360" step="1" value="0" data-symbol="\u00b0"/>
+              <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
               <div class="readout"></div>
             </label>
           </div>
