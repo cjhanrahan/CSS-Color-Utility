@@ -4,6 +4,8 @@ window.Convert = {
     var hue = Convert.rgbToHue(red, green, blue);
     var saturation =  Convert.rgbToSaturation(red, green, blue);
     var lightness = Convert.rgbToLightness(red, green, blue) + ")";
+
+    return 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + ')';
   },
 
   rgbToHue: function(red, green, blue) {

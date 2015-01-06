@@ -14,11 +14,6 @@ input[type="text"] {
   font-size: 16px;
 }
 
-.readout {
-  border: 1px solid black;
-  padding: 5px;
-}
-
 .exampleText {
   max-width: 200px;
   padding: 5px;

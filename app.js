@@ -4,7 +4,9 @@ window.onload = function(){
 
  
     start: function() {
-      this.setupInputHandlers();
+      this.initializeTextInputs();
+      this.setupInputSystemHandlers();
+
     
     },
 
@@ -23,9 +25,10 @@ window.onload = function(){
       });
     },
 
-
-    updateReadouts: function() {
-
+    initializeTextInputs: function() {
+      _.selectorForEach('.inputPair', function(inputPairNode) {
+        
+      });
     },
 
 
@@ -34,23 +37,16 @@ window.onload = function(){
 
       if (inputSystem === "hex") {
         var hexInput = inputSystemNode.querySelector('input');
-        $.validateHexInput(hexInput.value);
+        var Validate.hexInput(hexInput.value);
         return "#" + hexInput.value;
+      }
+
+      else if (inputSystem === "rgb") {
+
       }
     },
 
-    validateHexInput: function(hexValue){
-      var validationDiv = document.querySelector('.validationOutput');
-      
-      if(isNaN(parseInt(hexValue, 16)))
-        validationDiv.innerHTML = "Not a valid hex number";
-      
-      else if(!(hexValue.length === 3 || hexValue.length === 6))
-        validationDiv.innerHTML = "Hex number must be 3 or 6 digits";
-      
-      else
-        validationDiv.innerHTML = "";
-    },
+
 
     updateOtherInputSystems: function(inputSystemThatChanged) {
 
