@@ -1,24 +1,21 @@
-window.onload = function(){
-  
-  window.$ = {
+define(['util', 'validate'], function(_, validate){
 
- 
+  var app = {
+   
     start: function() {
       this.initializeTextInputs();
       this.setupInputSystemHandlers();
-
-    
     },
 
-    setupInputHandlers: function(){
-
+    setupInputSystemHandlers: function(){
+      var app = this;
       _.selectorForEach('.background, .foreground', function(cssPropertyNode){
         _.selectorForEach('.inputSystem', function(inputSystemNode){
     
            inputSystemNode.addEventListener('input', function(){
             var cssProperty = cssPropertyNode.getAttribute('data-css-property');
-            var newColor = $.getValueFromInputSystem(inputSystemNode);
-            $.updateExampleText(cssProperty, newColor);
+            var newColor = app.getValueFromInputSystem(inputSystemNode);
+            app.updateExampleText(cssProperty, newColor);
           });
           
         }, cssPropertyNode);
@@ -31,13 +28,12 @@ window.onload = function(){
       });
     },
 
-
     getValueFromInputSystem: function(inputSystemNode) {
       var inputSystem = inputSystemNode.getAttribute('data-input-system');
 
       if (inputSystem === "hex") {
         var hexInput = inputSystemNode.querySelector('input');
-        var Validate.hexInput(hexInput.value);
+        validate.hexInput(hexInput.value);
         return "#" + hexInput.value;
       }
 
@@ -46,20 +42,13 @@ window.onload = function(){
       }
     },
 
-
-
-    updateOtherInputSystems: function(inputSystemThatChanged) {
-
-    },
-
     updateExampleText: function(cssPropertyName, cssColorValue) {
       var exampleTextNode = document.querySelector('.exampleText');
       exampleTextNode.style[cssPropertyName] = cssColorValue;
     },
-
-
   };
+ 
+  return app;
 
-  $.start();
-};
+});
 
