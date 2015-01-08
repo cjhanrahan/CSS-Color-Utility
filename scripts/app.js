@@ -1,4 +1,4 @@
-define(['util', 'validate'], function(_, validate){
+define(['util', 'validate', 'colorstate'], function(_, validate, ColorState){
 
   var app = {
    
@@ -7,7 +7,7 @@ define(['util', 'validate'], function(_, validate){
       this.setupInputSystemHandlers();
     },
 
-    setupInputSystemHandlers: function(){
+    setupInputSystemHandlers: function() {
       var app = this;
       _.selectorForEach('.background, .foreground', function(cssPropertyNode){
         _.selectorForEach('.inputSystem', function(inputSystemNode){
