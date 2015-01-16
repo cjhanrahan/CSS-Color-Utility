@@ -21,6 +21,8 @@ label {
 
 label input {
   display: block;
+  padding: 2px 0px;
+  break-inside: avoid;
 }
 
 .exampleText {
@@ -33,4 +35,8 @@ label input {
   border: 1px solid black;
   width: 200px;
   min-height: 50px;
+}
+
+[role = "spacer"] {
+  height: 9px;
 }
