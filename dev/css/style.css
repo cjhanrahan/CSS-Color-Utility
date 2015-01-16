@@ -1,0 +1,36 @@
+body {
+  text-align: center;
+}
+
+.appContainer {
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+input[type="text"] {
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  column-count: 3;
+}
+
+label input {
+  display: block;
+}
+
+.exampleText {
+  max-width: 200px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.validationOutput {
+  border: 1px solid black;
+  width: 200px;
+  min-height: 50px;
+}
