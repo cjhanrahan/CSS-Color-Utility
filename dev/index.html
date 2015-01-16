@@ -10,107 +10,123 @@
     <h1>CSS Color Utility</h1>
     
     <div class="appContainer">
-      <div class="background" data-css-property="backgroundColor">
+      <div class="cssProperty" data-css-property="backgroundColor">
 
         <h2>Background</h2>
 
         <div class="inputSystem" data-input-system="hex">
-          <label> Hex
+          <div class ="colorValue" data-value-type="hex">
+            <label> Hex </label>
             <div role="spacer"></div>
             <input type="text" value="FFF" maxlength="6" data-color-property="hex"/>
-          </label>
+          </div>
         </div>
 
 
         <div class="inputSystem" data-input-system="rgb">
-          <label> Red
+          <div class = "colorValue" data-value-type="red">
+            <label> Red </label>
             <input type="range" min="0" max="255" step="1" value="255" />
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Green
+          <div class= "colorValue" data-value-type="green">
+            <label> Green </label>
             <input type="range" min="0" max="255" step="1" value="255" />
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Blue
+          <div class="colorValue" data-value-type="blue">
+            <label> Blue </label>
             <input type="range" min="0" max="255" step="1" value="255" />
             <input type="text" />
-          </label>
+          </div>
         </div>
 
         <div class="inputSystem" data-input-system="hsl">
-          <label> Hue
+          <div class="colorValue" data-value-type="hue"> 
+            <label> Hue </label>
             <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Saturation
+          <div class="colorValue" data-value-type="saturation"> 
+            <label> Saturation </label>
             <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"/>
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Lightness
+          <div class="colorValue" data-value-type="lightness">
+            <label> Lightness
             <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
             <input type="text" />
-          </label>
+          </div>
         </div>
 
       </div>
 
-      <div class="foreground" data-css-property="color">
+      <div class="cssProperty" data-css-property="color">
 
         <h2>Foreground</h2>
 
         <div class="inputSystem" data-input-system="hex">
-          <label> Hex
+          <div class="colorValue" data-value-type="hex">
+            <label> Hex </label>
             <div role="spacer"></div>
             <input type="text" value="000" maxlength="6" data-color-property="hex"/>
-          </label>
+          </div>
         </div>
 
-        <div class="inputSystem" data-input-system="rgb">
-          <label> Red
+        <div class="inputSystem" data-input-system="rgba">
+          <div class="colorValue" data-value-type="red">
+            <label> Red </label>
             <input type="range" min="0" max="255" step="1" value="0" />
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Green
+          <div class="colorValue" data-value-type="green">
+            <label> Green </label>
             <input type="range" min="0" max="255" step="1" value="0" />
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Blue
+          <div class="colorValue" data-value-type="blue">
+            <label> Blue </label>
             <input type="range" min="0" max="255" step="1" value="0" />
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Alpha
+          <div class="colorValue" data-value-type="alpha">
+            <label> Alpha </label>
             <input type="range" min="0" max="1" step="0.01" value="100"/>
             <input type="text" />
-          </label>
+          </div>
         </div>
 
-        <div class="inputSystem" data-input-system="hsl">
-          <label> Hue
+        <div class="inputSystem" data-input-system="hsla">
+          <div class="colorValue" data-value-type="hue">
+            <label> Hue </label>
             <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"/>
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Saturation
+          <div class="colorValue" data-value-type="saturation">
+            <label> Saturation
             <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"/>
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Lightness
+          <div class="colorValue" data-value-type="lightness">
+            <label> Lightness </label>
             <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"/>
             <input type="text" />
-          </label>
+          </div>
 
-          <label> Alpha
+          <div class="colorValue" data-value-type="alpha">
+            <label> Alpha </label>
             <input type="range" min="0" max="1" step="0.01" value="100"/>
             <input type="text" />
-            </label>
+          </div>
         </div>
 
 

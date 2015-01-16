@@ -16,12 +16,17 @@ input[type="text"] {
 
 label {
   display: block;
-  column-count: 3;
 }
 
-label input {
+.colorValue {
+  column-count: 3; 
+}
+
+
+
+input {
   display: block;
-  padding: 2px 0px;
+  margin: 2px 0px;
   break-inside: avoid;
 }
 

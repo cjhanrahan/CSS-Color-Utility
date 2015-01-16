@@ -27,7 +27,7 @@ define(["convert"], function(convert){
     this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
   };
 
-  ColorState.prototype.setRgb = function(red, green, blue){
+  ColorState.prototype.setRgb = function(red, green, blue) {
     this.hex = red.toString(16) + green.toString(16) + blue.toString(16);
     this.red = red;
     this.green = green;
@@ -37,5 +37,12 @@ define(["convert"], function(convert){
     this.saturation = convert.rgbToSaturation(red, green, blue);
     this.lightness = convert.rgbToLightness(red, green, blue);
   };
+
+
+  ColorState.prototype.getValue = function(attributeName) {
+    var exactValue = this[attributeName];
+    return Math.round(exactValue);
+  };
+
   return ColorState;
 });
