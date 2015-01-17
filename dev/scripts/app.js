@@ -9,7 +9,7 @@ define(['util', 'validate', 'colorstate'], function(_, validate, ColorState){
 
     setupInputSystemHandlers: function() {
       var app = this;
-      _.selectorForEach('.background, .foreground', function(cssPropertyNode){
+      _.selectorForEach('.cssProperty', function(cssPropertyNode){
         _.selectorForEach('.inputSystem', function(inputSystemNode){
     
            inputSystemNode.addEventListener('input', function(){

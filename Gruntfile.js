@@ -30,6 +30,22 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      dist: {
+        options: {
+          style: 'expanded',
+          sourcemap: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'dev/css',
+          src: ['*.scss'],
+          dest: 'build/css/',
+          ext: '.css'
+        }]
+      }
+    },
+
     postcss: {
       options: {
         processors: [
@@ -40,7 +56,7 @@ module.exports = function(grunt) {
       },
       dist: {
         expand: true,
-        cwd: 'dev/css/',
+        cwd: 'build/css/',
         src: '*.css',
         dest: 'build/css/'
       }
@@ -50,7 +66,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('default', ['clean', 'copy', 'postcss']);
+  grunt.registerTask('default', ['clean', 'copy', 'sass', 'postcss']);
 };
