@@ -12,6 +12,12 @@ body {
 
 input[type="text"] {
   font-size: 16px;
+
+  &:focus {
+    outline-width: 2px;
+    outline-offset: -2px;
+    outline-style: solid;
+  }
 }
 
 label {
@@ -21,8 +27,6 @@ label {
 .colorValue {
   column-count: 3; 
 }
-
-
 
 input {
   display: block;
