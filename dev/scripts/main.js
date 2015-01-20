@@ -28,7 +28,6 @@ requirejs.config({
 var testSuites = ['tests/cssPropertySuite'];
 
 
-
 require(['custom-boot', 'app'], function (boot, app) {
   require(testSuites, function () {
     window.runTests();
