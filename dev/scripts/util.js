@@ -1,13 +1,13 @@
-define(function(){
+define(function (){
   var util = {
-    objectForEach: function(object, func) {
+    objectForEach: function (object, func) {
       for (var attribute in object) {
         if(object.hasOwnProperty(attribute))
           func(object[attribute]);
       }
     },
 
-    selectorForEach: function(selector, func, parentNode) {
+    selectorForEach: function (selector, func, parentNode) {
       
       if(parentNode === undefined)
         parentNode = document;
@@ -17,11 +17,18 @@ define(function(){
       Array.prototype.forEach.call(nodes, func);
     },
 
-    nodeListForEach: function(nodeList, func) {
-      Array.prototype.forEach.call(nodeList, func);
+    selectorWithData: function (selector, dataName, dataValue){
+      var dataReq = dataValue ? '="' + dataValue + '"' : '';
+      return selector + '[data-' + dataName + dataReq + ']';
+
     },
 
-    round: function(number, logBaseTen) {
+    nodeListForEach: function (nodeList, func) {
+      for (var i = 0; i < nodeList.length; i++)
+        func(nodeList[i]);
+    },
+
+    round: function (number, logBaseTen) {
       if(number === 0)
         return 0;
 

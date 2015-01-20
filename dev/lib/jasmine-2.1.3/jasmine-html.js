@@ -142,7 +142,7 @@ jasmineRequire.HtmlReporter = function(j$) {
       }
     };
 
-    this.jasmineDone = function() {
+    this.jasmineDone = function () {
       var banner = find('.banner');
       banner.appendChild(createDom('span', {className: 'duration'}, 'finished in ' + timer.elapsed() / 1000 + 's'));
 

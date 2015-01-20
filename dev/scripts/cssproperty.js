@@ -13,10 +13,10 @@ define(['util', 'colorstate', 'inputsystem'], function(_, ColorState, InputSyste
   CssProperty.prototype.getInputSystemsFromRootNode = function(){
     var inputSystems = [];
 
-    var inputSystemNodes = rootNode.querySelectorAll('.inputSystem');
+    var inputSystemNodes = this.rootNode.querySelectorAll('.inputSystem');
 
     _.nodeListForEach(inputSystemNodes, function(node){
-      inputSystem.append(new InputSystem(node));
+      inputSystems.push(new InputSystem(node));
     });
   };
 

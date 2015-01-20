@@ -1,14 +1,18 @@
-define(['cssproperty'], function (CssProperty) {
+define(['cssproperty', 'util'], function (CssProperty, _) {
 
-  describe('change this name', function () { //DEBUG change name
+  describe('A CssProperty ', function () { //DEBUG change name
 
-    var cssProperty = new CssPropert();
 
-    it('should instatiate a CSS property from a Node', function () {
-      
-      console.log('First spec reached'); //DEBUG
-      expect('abc').toEqual('abc');
+    var cssProperty = null;
 
+    beforeAll(function () {
+      var selector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
+      var backgroundNode = document.querySelector(selector);
+      cssProperty = new CssProperty(backgroundNode);
+    });
+
+    it('debug', function () {
+      // expect('abc').toEqual('abd');
     });
   });
 });
