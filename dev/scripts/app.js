@@ -1,10 +1,9 @@
-define(['util', 'validate', 'colorstate'], function(_, validate, ColorState){
+define(['util', 'validate', 'colorstate', 'cssproperty'], function(_, validate, ColorState, CssProperty){
 
   var app = {
    
     start: function() {
-      this.initializeTextInputs();
-      this.setupInputSystemHandlers();
+      window.runTests();
     },
 
     setupInputSystemHandlers: function() {
@@ -23,9 +22,7 @@ define(['util', 'validate', 'colorstate'], function(_, validate, ColorState){
     },
 
     initializeTextInputs: function() {
-      _.selectorForEach('.inputPair', function(inputPairNode) {
-        
-      });
+    
     },
 
     getValueFromInputSystem: function(inputSystemNode) {

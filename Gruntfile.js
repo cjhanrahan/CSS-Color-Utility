@@ -23,8 +23,13 @@ module.exports = function(grunt) {
           dest: 'build/scripts'
         }, {
           expand: true,
-          cwd: 'dev/lib/',
+          cwd: 'dev/tests/',
           src: '*.js',
+          dest: 'build/tests'
+        },{
+          expand: true,
+          cwd: 'dev/lib/',
+          src: ['**/*.js', '**/*.css'],
           dest: 'build/lib'
         }]
       }
