@@ -28,6 +28,13 @@ define(function (){
         func(nodeList[i]);
     },
 
+
+    triggerNativeEvent: function(eventName, eventTarget) {
+      var event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, false);
+      eventTarget.dispatchEvent(event);
+    },
+
     round: function (number, logBaseTen) {
       if(number === 0)
         return 0;

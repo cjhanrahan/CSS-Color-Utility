@@ -20,7 +20,7 @@ define(['util', 'colorstate', 'inputsystem'], function(_, ColorState, InputSyste
     });
   };
 
-
+  CssProperty.prototype.onInput = function(){var z=1;};
 
   return CssProperty;
 });
