@@ -25,7 +25,15 @@ label {
 }
 
 .colorValue {
-  column-count: 3; 
+  width: 25rem;
+  & > *           { 
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  & > :first-child   { width: 25%; }
+  & > :nth-child(2)  { width: 50%; }
+  & > :last-child    { width: 25%; }
 }
 
 input {
@@ -34,6 +42,7 @@ input {
   width: 100px;
   break-inside: avoid;
 }
+
 
 .exampleText {
   max-width: 200px;

@@ -35,6 +35,18 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+        },
+        files: {
+          'build/index.html': 'build/index.html'
+        }
+      }
+    },
+
     sass: {
       dist: {
         options: {
@@ -71,8 +83,10 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('default', ['clean', 'copy', 'sass', 'postcss']);
+  grunt.registerTask('default',
+    ['clean', 'copy', 'htmlmin', 'sass', 'postcss']);
 };
