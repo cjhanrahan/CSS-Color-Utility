@@ -35,6 +35,17 @@ define(function (){
       eventTarget.dispatchEvent(event);
     },
 
+    triggerCustomEvent: function(eventName, eventTarget) {
+      var event;
+      if(window.CustomEvent) {
+        event = new CustomEvent(eventName);
+      } else {
+        event = document.createEvent('CustomEvent');
+        event.initCustomEvent(eventName, true, true);
+      }
+      eventTarget.dispatchEvent(event);
+    },
+
     round: function (number, logBaseTen) {
       if(number === 0)
         return 0;

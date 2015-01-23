@@ -7,7 +7,7 @@ define(['cssproperty', 'util'], function (CssProperty, _) {
 
 
 
-    beforeAll(function () {
+    beforeEach(function () {
       var selector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
       var backgroundNode = document.querySelector(selector);
       cssProperty = new CssProperty(backgroundNode);
@@ -22,14 +22,15 @@ define(['cssproperty', 'util'], function (CssProperty, _) {
 
 
     it('should call onInput when \'input\' is fired on rootNode', function(){
-      spyOn(cssProperty, 'onInput');
-      
+      var onInputWasCalled = false;
+      document.addEventListener('input', function (event) {
+        onInputWasCalled = event.data.cssPropertyOnInputCalled;
+        console.log('onInputWasCalled', onInputWasCalled);
+      });
+
       _.triggerNativeEvent('input', cssProperty.rootNode);
-      expect(cssProperty.onInput).toHaveBeenCalled();
+      expect(onInputWasCalled).toBe(true);
     });
-
-
-
 
   });
 });
