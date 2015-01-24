@@ -46,6 +46,18 @@ define(function (){
       eventTarget.dispatchEvent(event);
     },
 
+    getEventData: function (object, dataName) {
+      if(!object.data)
+        object.data = {};
+      return object[dataName];
+    },
+
+    setEventData: function (object, dataName, dataValue) {
+      if(!object.data)
+        object.data = {};
+      object[dataName] = dataValue;
+    },
+
     round: function (number, logBaseTen) {
       if(number === 0)
         return 0;

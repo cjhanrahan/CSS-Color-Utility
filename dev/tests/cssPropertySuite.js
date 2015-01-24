@@ -31,6 +31,5 @@ define(['cssproperty', 'util'], function (CssProperty, _) {
       _.triggerNativeEvent('input', cssProperty.rootNode);
       expect(onInputWasCalled).toBe(true);
     });
-
   });
 });

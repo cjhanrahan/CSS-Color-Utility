@@ -24,6 +24,8 @@ define(['util', 'colorstate', 'inputsystem'], function(_, ColorState, InputSyste
     });
   };
 
+
+
   CssProperty.prototype.onInput = function(event){
     //DEBUG for testing purposes only
     if(!event.data)
@@ -31,5 +33,8 @@ define(['util', 'colorstate', 'inputsystem'], function(_, ColorState, InputSyste
     event.data.cssPropertyOnInputCalled = true;
   };
 
+
+
+  
   return CssProperty;
 });
