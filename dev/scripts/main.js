@@ -25,7 +25,10 @@ requirejs.config({
 
 
 
-var testSuites = ['tests/cssPropertySuite'];
+var testSuites = [
+  'tests/cssPropertySuite',
+  'tests/inputSystemSuite'
+];
 
 
 require(['custom-boot', 'app'], function (boot, app) {

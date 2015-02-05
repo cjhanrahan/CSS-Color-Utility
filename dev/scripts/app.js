@@ -1,4 +1,4 @@
-define(['util', 'validate', 'colorstate', 'cssproperty'], function(_, validate, ColorState, CssProperty){
+define(['util', 'validate', 'ColorState', 'CssProperty'], function(_, validate, ColorState, CssProperty){
 
   var app = {
    
