@@ -26,7 +26,7 @@ define(['util', 'ColorState', 'InputSystem'], function(_, ColorState, InputSyste
 
 
 
-  CssProperty.prototype.onInput = function(event) { 
+  CssProperty.prototype.onInput = function(event) {
     if(!event.data)
       event.data = {};
     

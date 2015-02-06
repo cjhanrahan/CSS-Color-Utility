@@ -6,7 +6,8 @@ define(['InputSystem', 'util'], function (InputSystem, _) {
 
 
     beforeEach(function () {
-      var parentSelector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
+      var parentSelector =
+        _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
       var hexSelector = _.selectorWithData('.inputSystem', 'input-system', 'hex');
       var inputSystemSelector = parentSelector + ' ' + hexSelector;
       var rootNode = document.querySelector(inputSystemSelector);
