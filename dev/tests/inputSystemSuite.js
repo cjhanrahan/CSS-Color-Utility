@@ -1,4 +1,4 @@
-define(['InputSystem', 'util'], function (InputSystem, _) {
+define(['util', 'InputSystem', 'ColorState'], function (_, InputSystem, ColorState) {
 
   describe('The hex InputSystem', function () {
 
@@ -17,6 +17,11 @@ define(['InputSystem', 'util'], function (InputSystem, _) {
 
     it('should have an onInput function', function () {
       expect(inputSystem.onInput).toEqual(jasmine.any(Function));
+    });
+
+    it('should have a getColorState function which returns a ColorState', function () {
+      expect(inputSystem.getColorState).toEqual(jasmine.any(Function));
+      expect(inputSystem.getColorState()).toEqual(jasmine.any(ColorState));
     });
   });
 });
