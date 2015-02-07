@@ -8,29 +8,28 @@ define(['util', 'ColorState', 'InputSystem'], function(_, ColorState, InputSyste
     
     this.propertyName = rootNode.getAttribute('data-css-property');
     this.inputSystems = this.getInputSystemsFromRootNode(rootNode);
-
-    this.rootNode.addEventListener('input', thisProperty.onInput.bind(thisProperty));
+    this.sampleDiv = document.querySelector('.colorSample');
   };
 
 
 
   CssProperty.prototype.getInputSystemsFromRootNode = function() {
+    var thisProperty = this;
     var inputSystems = [];
 
     var inputSystemNodes = this.rootNode.querySelectorAll('.inputSystem');
 
     _.nodeListForEach(inputSystemNodes, function(node){
-      inputSystems.push(new InputSystem(node));
+      inputSystems.push(new InputSystem(node, thisProperty));
     });
+
+    return inputSystems;
   };
 
 
 
-  CssProperty.prototype.onInput = function(event) {
-    if(!event.data)
-      event.data = {};
-    
-    event.data.cssPropertyOnInputCalled = true;
+  CssProperty.prototype.setSampleProperty = function (propertyName, valueString) {
+
   };
 
   

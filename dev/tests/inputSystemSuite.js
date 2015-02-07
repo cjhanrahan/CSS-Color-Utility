@@ -15,9 +15,7 @@ define(['util', 'InputSystem', 'ColorState'], function (_, InputSystem, ColorSta
       inputSystem = new InputSystem(rootNode);
     });
 
-    it('should have an onInput function', function () {
-      expect(inputSystem.onInput).toEqual(jasmine.any(Function));
-    });
+
 
     it('should have a getColorState function which returns a ColorState', function () {
       expect(inputSystem.getColorState).toEqual(jasmine.any(Function));

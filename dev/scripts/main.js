@@ -27,7 +27,8 @@ requirejs.config({
 
 var testSuites = [
   'tests/cssPropertySuite',
-  'tests/inputSystemSuite'
+  'tests/inputSystemSuite',
+  'tests/colorValueSuite'
 ];
 
 

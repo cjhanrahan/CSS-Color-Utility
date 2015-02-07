@@ -1,4 +1,4 @@
-define(['CssProperty', 'util'], function (CssProperty, _) {
+define(['util', 'CssProperty'], function (_, CssProperty) {
 
   describe('The background-color CssProperty ', function () { //DEBUG change name
 
@@ -12,20 +12,27 @@ define(['CssProperty', 'util'], function (CssProperty, _) {
     });
 
 
-    it('should have an onInput function', function () {
-      expect(cssProperty.onInput).toEqual(jasmine.any(Function));
+
+    it('should have a setSampleProperty function which changes css properties in example', function () {
+      expect(cssProperty.setSampleProperty).toEqual(jasmine.any(Function));
+
     });
 
 
-    it('should call onInput when \'input\' is fired on rootNode', function () {
-      var onInputWasCalled = false;
-      document.addEventListener('input', function (event) {
-        onInputWasCalled = event.data.cssPropertyOnInputCalled;
-      });
 
-      _.triggerNativeEvent('input', cssProperty.rootNode);
+    it('setSampleProperty should change sample\'s background-color', function() {
+      var sampleDiv = cssProperty.sampleDiv;
 
-      expect(onInputWasCalled).toBe(true);
+      var initialBackgroundColor = sampleDiv.style.backgroundColor;
+
+      cssProperty.setSampleProperty('backgroundColor', 'red');
+      expect(sampleDiv.style.backgroundColor).toEqual('red');
+
+      cssProperty.setSampleProperty('backgroundColor', 'blue');
+      expect(sampleDiv.style.backgroundColor.toEqual('blue'));
+
+      sampleDiv.style.backgroundColor = initialBackgroundColor;
     });
+
   });
 });

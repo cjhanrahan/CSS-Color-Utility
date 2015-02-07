@@ -1,11 +1,13 @@
 define(function (){
   var util = {
-    objectForEach: function (object, func) {
-      for (var attribute in object) {
-        if(object.hasOwnProperty(attribute))
-          func(object[attribute]);
+    eventForEach: function (event, func) {
+      for (var attribute in event) {
+        if(event.hasOwnProperty(attribute))
+          func(event[attribute]);
       }
     },
+
+
 
     selectorForEach: function (selector, func, parentNode) {
       
@@ -17,16 +19,21 @@ define(function (){
       Array.prototype.forEach.call(nodes, func);
     },
 
+
+
     selectorWithData: function (selector, dataName, dataValue){
       var dataReq = dataValue ? '="' + dataValue + '"' : '';
       return selector + '[data-' + dataName + dataReq + ']';
 
     },
 
+
+
     nodeListForEach: function (nodeList, func) {
       for (var i = 0; i < nodeList.length; i++)
         func(nodeList[i]);
     },
+
 
 
     triggerNativeEvent: function(eventName, eventTarget) {
@@ -46,17 +53,23 @@ define(function (){
       eventTarget.dispatchEvent(event);
     },
 
-    getEventData: function (object, dataName) {
-      if(!object.data)
-        object.data = {};
-      return object[dataName];
+
+
+    getEventData: function (event, dataName) {
+      if(!event.data)
+        event.data = {};
+      return event.data[dataName];
     },
 
-    setEventData: function (object, dataName, dataValue) {
-      if(!object.data)
-        object.data = {};
-      object[dataName] = dataValue;
+
+
+    setEventData: function (event, dataName, dataValue) {
+      if(!event.data)
+        event.data = {};
+      event.data[dataName] = dataValue;
     },
+
+
 
     round: function (number, logBaseTen) {
       if(number === 0)
@@ -72,6 +85,7 @@ define(function (){
       }
     }
   };
+
 
   return util;
 });
