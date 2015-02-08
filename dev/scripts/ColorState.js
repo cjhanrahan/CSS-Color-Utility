@@ -12,18 +12,23 @@ define(['convert'], function(convert){
     this.lightness = null;
   };
 
+  
+
   ColorState.prototype.getInteger = function(propertyName) {
     return Math.round(this[propertyName]);
   };
 
-  ColorState.prototype.setHex = function(hex) {
+
+
+  ColorState.prototype.setByHex = function(hex) {
     this.hex = hex;
+
     if(hex.length === 3) {
       var firstChar = hex.slice(0,1);
       this.red = parseInt(firstChar + firstChar, 16);
       var secondChar = hex.slice(1,2);
       this.green = parseInt(secondChar + secondChar, 16);
-      var thirdChar = hex.slice(2,3);
+      var thirdChar = hex.slice(2);
       this.green = parseInt(thirdChar + thirdChar, 16);
     }
     else {
@@ -31,11 +36,23 @@ define(['convert'], function(convert){
       this.green = parseInt(hex.slice(2, 4), 16);
       this.blue = parseInt(hex.slice(4), 16);
     }
+
     this.alpha = null;
     this.hue = convert.rgbToHue(this.red, this.green, this.blue);
     this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
     this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
   };
+
+
+
+  ColorState.prototype.setByRed = function (redValue) {};
+  ColorState.prototype.setByGreen = function (greenValue) {};
+  ColorState.prototype.setByBlue = function (blueValue) {};
+  ColorState.prototype.setByAlpha = function (alphaValue) {};
+  ColorState.prototype.setByHue = function (hueValue) {};
+  ColorState.prototype.setBySaturation = function (saturationValue) {};
+  ColorState.prototype.setByLightness = function (lightnessValue) {};
+
 
 
   ColorState.prototype.setRgb = function(red, green, blue) {
@@ -56,4 +73,4 @@ define(['convert'], function(convert){
   };
 
   return ColorState;
-});
+}); 

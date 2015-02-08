@@ -9,6 +9,8 @@ define(function(){
       return 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + ')';
     },
 
+
+
     rgbToHue: function(red, green, blue) {
       var thisModule = this;
       var maxColor = Math.max(red, green, blue);
@@ -43,12 +45,16 @@ define(function(){
       return hexagonalHue * 60;
     },
 
+
+
     rgbToChroma: function(red, green, blue) {
       var minColor = Math.min(red, green, blue);
       var maxColor = Math.max(red, green, blue);
 
       return (maxColor - minColor) / 255;
     },
+
+
 
     rgbToSaturation: function(red, green, blue) {
       var thisModule = this;
@@ -57,9 +63,9 @@ define(function(){
       var maximumChromaForLightness = 1 - Math.abs(2* lightness - 1);
 
       return chroma / maximumChromaForLightness * 100;
-
-
     },
+
+
 
     rgbToLightness: function(red, green, blue) {
       var minColor = Math.min(red, green, blue);
