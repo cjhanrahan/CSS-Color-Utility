@@ -4,8 +4,8 @@ define (['convert'], function (convert) {
 
 
 
-        it('should include the hexToRgbObj function', function () {
-            expect(convert.hexToRgbObj).toEqual(jasmine.any(Function));
+        it('should include the hexToRgb function', function () {
+            expect(convert.hexToRgb).toEqual(jasmine.any(Function));
         });
 
 
@@ -16,7 +16,7 @@ define (['convert'], function (convert) {
                 green: 0,
                 blue: 255
             };
-            rgbFromConvert = convert.hexToRgbObj("00F");
+            rgbFromConvert = convert.hexToRgb("00F");
 
             expect(rgbFromConvert).toEqual(desiredRgb);
         });
@@ -27,7 +27,7 @@ define (['convert'], function (convert) {
                 green: 62,
                 blue: 82
             };
-            rgbFromConvert = convert.hexToRgbObj("653E52");
+            rgbFromConvert = convert.hexToRgb("653E52");
 
             expect(rgbFromConvert).toEqual(desiredRgb);
         });

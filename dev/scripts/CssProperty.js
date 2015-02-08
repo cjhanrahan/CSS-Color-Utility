@@ -13,7 +13,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
     };
 
 
-    CssProperty.prototype.setPropertyColor = function (colorString) {
+    CssProperty.prototype.updateSampleColor = function (colorString) {
         this.sampleDiv.style[this.propertyName] = colorString;
     };
 
@@ -30,8 +30,8 @@ define(['util', 'ColorState'], function (_, ColorState) {
             _.nodeListForEach(inputList, function (inputNode) {
 
                 inputNode.addEventListener('input', function (event) {
-
-                    thisProperty.colorState.updateValue(valueType, inputNode.value);
+                    var newValue = inputNode.value;
+                    thisProperty.colorState.updateValue(valueType, newValue);
                 });
             });
         });

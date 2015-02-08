@@ -1,7 +1,7 @@
 define(function () {
     var convert = {
 
-        hexToRgbObj: function(hexString) {
+        hexToRgb: function(hexString) {
             var rgbObj = {};
             if(hexString.length === 3) {
                 var firstLetter = hexString.charAt(0);
