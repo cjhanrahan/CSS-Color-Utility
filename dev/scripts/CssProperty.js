@@ -7,14 +7,20 @@ define(['util', 'ColorState'], function (_, ColorState) {
         this.colorState = new ColorState();
 
         this.propertyName = this.rootNode.getAttribute('data-css-property');
-        this.sampleDiv = document.querySelector('.colorSample');
+        this.sampleDiv = document.querySelector('.exampleText');
 
         this.attachListeners();
     };
 
 
-    CssProperty.prototype.updateSampleColor = function (colorString) {
-        this.sampleDiv.style[this.propertyName] = colorString;
+    CssProperty.prototype.updateSampleColor = function (colorCss) {
+        this.sampleDiv.style[this.propertyName] = colorCss;
+    };
+
+
+
+    CssProperty.prototype.updateInputs = function () {
+        
     };
 
 
@@ -32,10 +38,14 @@ define(['util', 'ColorState'], function (_, ColorState) {
                 inputNode.addEventListener('input', function (event) {
                     var newValue = inputNode.value;
                     thisProperty.colorState.updateValue(valueType, newValue);
+                    var newCss = thisProperty.colorState.getHexCss();
+                    thisProperty.updateSampleColor(newCss);
                 });
             });
         });
     };
+
+
 
 
 

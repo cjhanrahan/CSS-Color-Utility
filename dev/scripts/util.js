@@ -41,6 +41,8 @@ define(function (){
           eventTarget.dispatchEvent(event);
         },
 
+
+
         triggerCustomEvent: function(eventName, eventTarget) {
           var event;
           if(window.CustomEvent) {

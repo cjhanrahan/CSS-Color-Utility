@@ -1,163 +1,142 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <link rel="stylesheet" type="text/css" href="lib/jasmine-2.1.3/jasmine.css">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>CSS Color Utility</title>
-    
+        <link rel="stylesheet" type="text/css" href="lib/jasmine-2.1.3/jasmine.css">
 
-    <script src="lib/jasmine-2.1.3/jasmine.js"></script>
-    <script src="lib/jasmine-2.1.3/jasmine-html.js"></script>
-    <script src="lib/jasmine-2.1.3/custom-boot.js"></script> 
-    <script data-main="scripts/main" src="lib/require.js"></script>
-  
-  </head>
-  <body>
-    
-    <h1>CSS Color Utility</h1>
-    
-    <div class="appContainer">
-      <div class="cssProperty" data-css-property="backgroundColor">
+        <title>CSS Color Utility</title>
 
-        <h2>Background</h2>
 
-        <div class="inputSystem" data-input-system="hex">
-          <div class ="colorValue" data-value-type="hex">
-            <label> Hex </label>
-            <div role="spacer"></div>
-            <input type="text" value="FFF" maxlength="6" data-color-property="hex">
-          </div>
+        <script src="lib/jasmine-2.1.3/jasmine.js"></script>
+        <script src="lib/jasmine-2.1.3/jasmine-html.js"></script>
+        <script src="lib/jasmine-2.1.3/custom-boot.js"></script> 
+        <script data-main="scripts/main" src="lib/require.js"></script>
+
+    </head>
+    <body>
+
+        <h1>CSS Color Utility</h1>
+
+        <div class="appContainer">
+            <div class="cssProperty" data-css-property="backgroundColor">
+
+                <h2>Background</h2>
+
+                <div class ="colorValue" data-value-type="hex">
+                    <label> Hex </label>
+                    <div role="spacer"></div>
+                    <input type="text" maxlength="6" data-color-property="hex">
+                </div>
+
+
+                <!-- Comment after input tags fixes bug in html-minifier-->
+                <div class = "colorValue" data-value-type="red">
+                    <label> Red </label>
+                    <input type="range" min="0" max="255" step="1"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class= "colorValue" data-value-type="green">
+                    <label> Green </label>
+                    <input type="range" min="0" max="255" step="1"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="blue">
+                    <label> Blue </label>
+                    <input type="range" min="0" max="255" step="1"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="hue"> 
+                    <label> Hue </label>
+                    <input type="range" min="0" max="359" step="1" data-symbol="\u00b0"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="saturation"> 
+                    <label> Saturation </label>
+                    <input type="range" min="0" max="100" step="1" data-symbol="%"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="lightness">
+                    <label> Lightness </label>
+                    <input type="range" min="0" max="100" step="1" data-symbol="%"><!--
+                 --><input type="text"><!--
+             --></div>
+
+            </div>
+
+            <div class="cssProperty" data-css-property="color">
+
+                <h2>Foreground</h2>
+
+                <div class="colorValue" data-value-type="hex">
+                    <label> Hex </label>
+                    <div role="spacer"></div>
+                    <input type="text" maxlength="6" data-color-property="hex">
+                </div>
+
+                <div class="colorValue" data-value-type="red">
+                    <label> Red </label>
+                    <input type="range" min="0" max="255" step="1" ><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="green">
+                    <label> Green </label>
+                    <input type="range" min="0" max="255" step="1" ><!--
+                --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="blue">
+                    <label> Blue </label>
+                    <input type="range" min="0" max="255" step="1" ><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="alpha">
+                    <label> Alpha </label>
+                    <input type="range" min="0" max="1" step="0.01"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="hue">
+                    <label> Hue </label>
+                    <input type="range" min="0" max="359" step="1" data-symbol="\u00b0"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="saturation">
+                    <label> Saturation</label>
+                    <input type="range" min="0" max="100" step="1" data-symbol="%"><!--
+                 --><input type="text"><!--
+             --></div>
+
+                <div class="colorValue" data-value-type="lightness">
+                    <label> Lightness </label>
+                    <input type="range" min="0" max="100" step="1" data-symbol="%"><!--
+                 --><input type="text"><!--
+             --></div>
+            </div>
+
+
+            <div class="colorSample">
+                <h2>Color Sample</h2>
+                <div class="exampleText">
+                    <h3>Example heading</h3>
+                    <p>
+                    This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
+                    </p>
+                </div> 
+            </div>
+
+            <div class="validationSection">
+                <h2> Validation </h2>
+                <p class="validationOutput"></p>
+            </div>
         </div>
-
-
-        <!-- Comment after input tags fixes bug in html-minifier-->
-        <div class="inputSystem" data-input-system="rgb">
-          <div class = "colorValue" data-value-type="red">
-            <label> Red </label>
-            <input type="range" min="0" max="255" step="1" value="255"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class= "colorValue" data-value-type="green">
-            <label> Green </label>
-            <input type="range" min="0" max="255" step="1" value="255"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="blue">
-            <label> Blue </label>
-            <input type="range" min="0" max="255" step="1" value="255"><!--
-         --><input type="text"><!--
-       --></div>
-        </div>
-
-        <div class="inputSystem" data-input-system="hsl">
-          <div class="colorValue" data-value-type="hue"> 
-            <label> Hue </label>
-            <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="saturation"> 
-            <label> Saturation </label>
-            <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="lightness">
-            <label> Lightness </label>
-            <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"><!--
-         --><input type="text"><!--
-       --></div>
-        </div>
-
-      </div>
-
-      <div class="cssProperty" data-css-property="color">
-
-        <h2>Foreground</h2>
-
-        <div class="inputSystem" data-input-system="hex">
-          <div class="colorValue" data-value-type="hex">
-          <label> Hex </label>
-            <div role="spacer"></div>
-            <input type="text" value="000" maxlength="6" data-color-property="hex">
-          </div>
-        </div>
-
-        <div class="inputSystem" data-input-system="rgba">
-          <div class="colorValue" data-value-type="red">
-            <label> Red </label>
-            <input type="range" min="0" max="255" step="1" value="0" ><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="green">
-            <label> Green </label>
-            <input type="range" min="0" max="255" step="1" value="0" ><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="blue">
-            <label> Blue </label>
-            <input type="range" min="0" max="255" step="1" value="0" ><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="alpha">
-            <label> Alpha </label>
-            <input type="range" min="0" max="1" step="0.01" value="100"><!--
-         --><input type="text"><!--
-       --></div>
-        </div>
-
-        <div class="inputSystem" data-input-system="hsla">
-          <div class="colorValue" data-value-type="hue">
-            <label> Hue </label>
-            <input type="range" min="0" max="359" step="1" value="0" data-symbol="\u00b0"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="saturation">
-            <label> Saturation</label>
-            <input type="range" min="0" max="100" step="1" value="0" data-symbol="%"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="lightness">
-            <label> Lightness </label>
-            <input type="range" min="0" max="100" step="1" value="100" data-symbol="%"><!--
-         --><input type="text"><!--
-       --></div>
-
-          <div class="colorValue" data-value-type="alpha">
-            <label> Alpha </label>
-            <input type="range" min="0" max="1" step="0.01" value="100"><!--
-         --><input type="text"><!--
-       --></div>
-        </div>
-
-
-      </div>
-
-   
-      <div class="colorSample">
-        <h2>Color Sample</h2>
-        <div class="exampleText">
-          <h3>Example heading</h3>
-          <p>
-            This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. This is example text. 
-          </p>
-        </div> 
-      </div>
-
-      <div class="validationSection">
-        <h2> Validation </h2>
-        <p class="validationOutput"></p>
-      </div>
-
-    </div>
-  </body>
+    </body>
 </html>

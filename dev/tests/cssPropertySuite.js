@@ -9,13 +9,15 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
             var selector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
             var backgroundNode = document.querySelector(selector);
             cssProperty = new CssProperty(backgroundNode);
+            cssProperty.colorState.setByHex('FFF');
         });
 
 
 
-        it('should have a working updateSampleColor function', function () {
+        it('should have an updateSampleColor function', function () {
             expect(cssProperty.updateSampleColor).toEqual(jasmine.any(Function));
         });
+
 
 
         it('updateSampleColor should change sample\'s background-color', function() {
@@ -34,10 +36,23 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
        
 
 
-        it('should call updateValue after an input event on hex input', function () {
+        it('should call the colorState\'s updateValue function after an input event on hex input', function () {
             spyOn(cssProperty.colorState, 'updateValue');
-            _.triggerNativeEvent('input', cssProperty.rootNode);
+            var hexInputNode = cssProperty.rootNode.querySelector('input');
+            _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
         });
+
+
+
+
+        it('should call the updateSampleColor function after an input event on hex input', function () {
+            spyOn(cssProperty, 'updateSampleColor');
+            var hexInputNode = cssProperty.rootNode.querySelector('input');
+            _.triggerNativeEvent('input', hexInputNode);
+            expect(cssProperty.updateSampleColor).toHaveBeenCalled();
+        });
+
+
     });
 });

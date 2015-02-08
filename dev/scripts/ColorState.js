@@ -34,7 +34,7 @@ define(['util', 'convert'], function (_, convert) {
         // this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
     };
 
-    ColorState.prototype.getHexCSS = function () {
+    ColorState.prototype.getHexCss = function () {
         return "#" + this.hex;
     };
 
