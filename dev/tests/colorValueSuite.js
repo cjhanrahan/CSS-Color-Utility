@@ -18,7 +18,6 @@ define(['util', 'ColorValue'], function (_, ColorValue) {
 
     it('should have an onInput function', function () {
       expect(colorValue.onInput).toEqual(jasmine.any(Function));
-      
     });
 
   });

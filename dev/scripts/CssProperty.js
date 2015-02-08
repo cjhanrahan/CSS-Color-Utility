@@ -28,8 +28,8 @@ define(['util', 'ColorState', 'InputSystem'], function(_, ColorState, InputSyste
 
 
 
-  CssProperty.prototype.setSampleProperty = function (propertyName, valueString) {
-
+  CssProperty.prototype.setPropertyColor = function (colorString) {
+    this.sampleDiv.style[this.propertyName] = colorString;
   };
 
   

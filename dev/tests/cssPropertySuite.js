@@ -13,23 +13,22 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
 
 
-    it('should have a setSampleProperty function which changes css properties in example', function () {
-      expect(cssProperty.setSampleProperty).toEqual(jasmine.any(Function));
-
+    it('should have a setPropertyColor function which changes css properties in example', function () {
+      expect(cssProperty.setPropertyColor).toEqual(jasmine.any(Function));
     });
 
 
 
-    it('setSampleProperty should change sample\'s background-color', function() {
+    it('setPropertyColor should change sample\'s background-color', function() {
       var sampleDiv = cssProperty.sampleDiv;
 
       var initialBackgroundColor = sampleDiv.style.backgroundColor;
 
-      cssProperty.setSampleProperty('backgroundColor', 'red');
+      cssProperty.setPropertyColor('red');
       expect(sampleDiv.style.backgroundColor).toEqual('red');
 
-      cssProperty.setSampleProperty('backgroundColor', 'blue');
-      expect(sampleDiv.style.backgroundColor.toEqual('blue'));
+      cssProperty.setPropertyColor('blue');
+      expect(sampleDiv.style.backgroundColor).toEqual('blue');
 
       sampleDiv.style.backgroundColor = initialBackgroundColor;
     });

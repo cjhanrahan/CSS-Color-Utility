@@ -17,9 +17,11 @@ define(['util', 'InputSystem', 'ColorState'], function (_, InputSystem, ColorSta
 
 
 
-    it('should have a getColorState function which returns a ColorState', function () {
-      expect(inputSystem.getColorState).toEqual(jasmine.any(Function));
-      expect(inputSystem.getColorState()).toEqual(jasmine.any(ColorState));
+    it('should have an onColorChange function', function () {
+      expect(inputSystem.onColorChange).toEqual(jasmine.any(Function));
     });
+
+
+
   });
 });

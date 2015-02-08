@@ -5,26 +5,28 @@ define(['util', 'ColorState', 'ColorValue'], function(_, ColorState, ColorValue)
     this.cssProperty = cssProperty;
     this.systemType = rootNode.getAttribute('data-input-system');
 
-
-    InputSystem.prototype.getColorValuesFromRootNode = function () {
-      var thisInputSystem = this;
-      var colorValues = [];
-
-      var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
-
-      _.nodeListForEach(colorValueNodes, function (node) {
-        colorValues.push(new ColorValue(node, thisInputSystem));
-      });
-
-      return colorValues;
-    };
-
-
-
-    InputSystem.prototype.getColorState = function () {
-      return new ColorState();
-    };
   };
+    
+
+  InputSystem.prototype.getColorValuesFromRootNode = function () {
+    var thisInputSystem = this;
+    var colorValues = [];
+
+    var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
+
+    _.nodeListForEach(colorValueNodes, function (node) {
+      colorValues.push(new ColorValue(node, thisInputSystem));
+    });
+
+    return colorValues;
+  };
+
+
+
+  InputSystem.prototype.onColorChange = function () {
+    
+  };
+    
 
   return InputSystem;
 });
