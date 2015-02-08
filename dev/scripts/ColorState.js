@@ -23,24 +23,12 @@ define(['convert'], function(convert){
   ColorState.prototype.setByHex = function(hex) {
     this.hex = hex;
 
-    if(hex.length === 3) {
-      var firstChar = hex.slice(0,1);
-      this.red = parseInt(firstChar + firstChar, 16);
-      var secondChar = hex.slice(1,2);
-      this.green = parseInt(secondChar + secondChar, 16);
-      var thirdChar = hex.slice(2);
-    this.blue = parseInt(thirdChar + thirdChar, 16);
-    }
-    else {
-      this.red = parseInt(hex.slice(0, 2), 16);
-      this.green = parseInt(hex.slice(2, 4), 16);
-      this.blue = parseInt(hex.slice(4), 16);
-    }
+    rgbObj = covert.hexToRgbObj(hex);
 
-    this.alpha = null;
-    this.hue = convert.rgbToHue(this.red, this.green, this.blue);
-    this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
-    this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
+    // this.alpha = null;
+    // this.hue = convert.rgbToHue(this.red, this.green, this.blue);
+    // this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
+    // this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
   };
 
 

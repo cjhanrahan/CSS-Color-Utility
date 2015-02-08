@@ -1,9 +1,22 @@
 define(function () {
     var convert = {
 
-        hexToRgbObj: function() {
-            var rbgObj = {};
-            return rbgObj;
+        hexToRgbObj: function(hexString) {
+            var rgbObj = {};
+            if(hexString.length === 3) {
+                var firstLetter = hexString.charAt(0);
+                rgbObj.red = parseInt(firstLetter + firstLetter, 16);
+                var secondLetter = hexString.charAt(1);
+                rgbObj.green = parseInt(secondLetter + secondLetter, 16);
+                var thirdLetter = hexString.charAt(2);
+                rgbObj.blue = parseInt(thirdLetter + thirdLetter, 16);
+            }
+            else {
+                rgbObj.red = parseInt(hexString.slice(0, 2), 16);
+                rgbObj.green = parseInt(hexString.slice(2, 4), 16);
+                rgbObj.blue = parseInt(hexString.slice(4), 16);
+            }
+            return rgbObj;
         },
 
 

@@ -1,4 +1,4 @@
-define(['util', 'ColorState'], function(_, ColorState){
+define(['util', 'ColorState'], function (_, ColorState) {
       
     var CssProperty = function(rootNode){
         var thisProperty = this;

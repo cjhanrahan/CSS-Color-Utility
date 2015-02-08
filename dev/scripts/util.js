@@ -29,7 +29,7 @@ define(function (){
         objectForEach: function (object, func) {
             for(var attribute in object) {
                 if(object.hasOwnProperty(attribute))
-    				func(attribute, object[attribute]);
+                    func(attribute, object[attribute]);
             }
         },
 
