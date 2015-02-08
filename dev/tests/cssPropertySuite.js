@@ -54,5 +54,11 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
         });
 
 
+
+        it('should have an updateInputs function', function () {
+            expect(cssProperty.updateInputs).toEqual(jasmine.any(Function));
+        });
+
+
     });
 });

@@ -63,8 +63,12 @@ define(['util', 'convert'], function (_, convert) {
 
 
     ColorState.prototype.getValue = function(attributeName) {
-        var exactValue = this[attributeName];
-        return Math.round(exactValue);
+        if (attributeName === 'hex')
+            return this.hex;
+        else {
+            var exactValue = this[attributeName];
+            return Math.round(exactValue);
+        }
     };
 
     return ColorState;

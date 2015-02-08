@@ -20,20 +20,31 @@ define(['util', 'ColorState'], function (_, ColorState) {
 
 
     CssProperty.prototype.updateInputs = function () {
-        
+        var thisProperty = this;
+        var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
+
+        _.nodeListForEach(colorValueNodes, function (colorValueNode) {
+            var valueType = colorValueNode.getAttribute('data-value-type');
+            var inputNodes = colorValueNode.querySelectorAll('input');
+            var valueToSet = thisProperty.colorState.getValue(valueType);
+
+            _.nodeListForEach(inputNodes, function (inputNode) {
+                input.value = valueToSet;
+            });
+        });
     };
 
 
 
     CssProperty.prototype.attachListeners = function () {
         var thisProperty = this;
-        var colorValues = this.rootNode.querySelectorAll('.colorValue');
+        var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
 
-        _.nodeListForEach(colorValues, function (colorValue) {
-            var valueType = colorValue.getAttribute('data-value-type');
-            var inputList = colorValue.querySelectorAll('input');
+        _.nodeListForEach(colorValueNodes, function (colorValueNode) {
+            var valueType = colorValueNode.getAttribute('data-value-type');
+            var inputNodes = colorValueNode.querySelectorAll('input');
 
-            _.nodeListForEach(inputList, function (inputNode) {
+            _.nodeListForEach(inputNodes, function (inputNode) {
 
                 inputNode.addEventListener('input', function (event) {
                     var newValue = inputNode.value;
