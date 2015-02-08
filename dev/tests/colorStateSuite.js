@@ -22,7 +22,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
             expect(colorState.updateValue).toEqual(jasmine.any(Function));
             var valueToCheck = '#fffe12';
             colorState.updateValue('hex', valueToCheck);
-            expect(ColorState.hex = valueToCheck);           
+            expect(ColorState.hex === valueToCheck);
         });
 
     });

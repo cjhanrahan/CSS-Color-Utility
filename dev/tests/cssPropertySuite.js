@@ -31,6 +31,13 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
             sampleDiv.style.backgroundColor = initialBackgroundColor;
         });
-        
+       
+
+
+        it('should call updateValue after an input event on hex input', function () {
+            spyOn(cssProperty.colorState, 'updateValue');
+            _.triggerNativeEvent('input', cssProperty.rootNode);
+            expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
+        });
     });
 });
