@@ -8,6 +8,8 @@ define(['util', 'ColorState'], function (_, ColorState) {
             colorState = new ColorState();
         });
 
+
+
         it('should have a setBy function for all color types', function () {
             _.objectForEach(colorState, function (colorType) {
                 var functionName = 'setBy' + _.capitalize(colorType);
@@ -15,5 +17,6 @@ define(['util', 'ColorState'], function (_, ColorState) {
             });
         });
         
+
     });
 });

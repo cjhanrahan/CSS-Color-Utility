@@ -29,7 +29,7 @@ define(['convert'], function(convert){
       var secondChar = hex.slice(1,2);
       this.green = parseInt(secondChar + secondChar, 16);
       var thirdChar = hex.slice(2);
-      this.green = parseInt(thirdChar + thirdChar, 16);
+    this.blue = parseInt(thirdChar + thirdChar, 16);
     }
     else {
       this.red = parseInt(hex.slice(0, 2), 16);
@@ -73,4 +73,4 @@ define(['convert'], function(convert){
   };
 
   return ColorState;
-}); 
+});
