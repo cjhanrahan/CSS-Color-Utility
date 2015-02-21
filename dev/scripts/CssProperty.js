@@ -13,6 +13,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
     };
 
 
+
     CssProperty.prototype.updateSampleColor = function (colorCss) {
         this.sampleDiv.style[this.propertyName] = colorCss;
     };
@@ -29,7 +30,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
             var valueToSet = thisProperty.colorState.getValue(valueType);
 
             _.nodeListForEach(inputNodes, function (inputNode) {
-                input.value = valueToSet;
+                inputNode.value = valueToSet;
             });
         });
     };
@@ -51,6 +52,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
                     thisProperty.colorState.updateValue(valueType, newValue);
                     var newCss = thisProperty.colorState.getHexCss();
                     thisProperty.updateSampleColor(newCss);
+                    thisProperty.updateInputs();
                 });
             });
         });

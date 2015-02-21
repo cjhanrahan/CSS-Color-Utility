@@ -1,4 +1,4 @@
-define(['util', 'ColorState'], function (_, ColorState) {
+define(['util', 'ColorState', 'convert'], function (_, ColorState, convert) {
 
     describe('A ColorState object', function () {
 
@@ -18,12 +18,16 @@ define(['util', 'ColorState'], function (_, ColorState) {
         });
        
 
-        it('should have a updateValue function which directly sets the given value type', function () {
+        it('should have an updateValue function which directly sets the given value type', function () {
             expect(colorState.updateValue).toEqual(jasmine.any(Function));
             var valueToCheck = '#fffe12';
             colorState.updateValue('hex', valueToCheck);
             expect(ColorState.hex === valueToCheck);
         });
+
+
+
+
 
     });
 });
