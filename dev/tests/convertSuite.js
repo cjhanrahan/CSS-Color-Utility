@@ -3,7 +3,6 @@ define (['convert'], function (convert) {
     describe('The convert module\'s hexTo... functions', function () {
 
 
-
         it('should include the hexToRgb function', function () {
             expect(convert.hexToRgb).toEqual(jasmine.any(Function));
         });

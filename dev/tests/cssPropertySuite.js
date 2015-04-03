@@ -1,13 +1,14 @@
+'use strict';
 define(['util', 'CssProperty'], function (_, CssProperty) {
 
     describe('The background-color CssProperty ', function () { //DEBUG change name
 
-        var cssProperty = null;
+        let cssProperty = null;
 
 
         beforeEach(function () {
-            var selector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
-            var backgroundNode = document.querySelector(selector);
+            let selector = _.selectorWithData('.cssProperty', 'css-property', 'backgroundColor');
+            let backgroundNode = document.querySelector(selector);
             cssProperty = new CssProperty(backgroundNode);
             cssProperty.colorState.setByHex('FFF');
         });
@@ -21,9 +22,9 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
 
         it('updateSampleColor should change sample\'s background-color', function() {
-            var sampleDiv = cssProperty.sampleDiv;
+            let sampleDiv = cssProperty.sampleDiv;
 
-            var initialBackgroundColor = sampleDiv.style.backgroundColor;
+            let initialBackgroundColor = sampleDiv.style.backgroundColor;
 
             cssProperty.updateSampleColor('red');
             expect(sampleDiv.style.backgroundColor).toEqual('red');
@@ -38,7 +39,7 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
         it('should call the colorState\'s updateValue function after an input event on hex input', function () {
             spyOn(cssProperty.colorState, 'updateValue');
-            var hexInputNode = cssProperty.rootNode.querySelector('input');
+            let hexInputNode = cssProperty.rootNode.querySelector('input');
             _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
         });
@@ -48,7 +49,7 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
         it('should call the updateSampleColor function after an input event on hex input', function () {
             spyOn(cssProperty, 'updateSampleColor');
-            var hexInputNode = cssProperty.rootNode.querySelector('input');
+            let hexInputNode = cssProperty.rootNode.querySelector('input');
             _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.updateSampleColor).toHaveBeenCalled();
         });

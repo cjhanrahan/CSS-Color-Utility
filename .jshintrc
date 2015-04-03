@@ -1,0 +1,8 @@
+{
+    "funcscope": false,
+    "undef": false,
+    "globalstrict": true,
+    "latedef": true,
+    "globals": {"define": true},
+    "jasmine": true
+}

@@ -1,19 +1,21 @@
+'use strict';
+
 define(['util', 'validate', 'ColorState', 'CssProperty'], function(_, validate, ColorState, CssProperty){
 
-  var app = {
+  let app = {
    
     start: function() {
       window.runTests();
     },
 
     setupInputSystemHandlers: function() {
-      var app = this;
+      let app = this;
       _.selectorForEach('.cssProperty', function(cssPropertyNode){
         _.selectorForEach('.inputSystem', function(inputSystemNode){
     
            inputSystemNode.addEventListener('input', function(){
-            var cssProperty = cssPropertyNode.getAttribute('data-css-property');
-            var newColor = app.getValueFromInputSystem(inputSystemNode);
+            let cssProperty = cssPropertyNode.getAttribute('data-css-property');
+            let newColor = app.getValueFromInputSystem(inputSystemNode);
             app.updateExampleText(cssProperty, newColor);
           });
           
@@ -26,10 +28,10 @@ define(['util', 'validate', 'ColorState', 'CssProperty'], function(_, validate, 
     },
 
     getValueFromInputSystem: function(inputSystemNode) {
-      var inputSystem = inputSystemNode.getAttribute('data-input-system');
+      let inputSystem = inputSystemNode.getAttribute('data-input-system');
 
       if (inputSystem === "hex") {
-        var hexInput = inputSystemNode.querySelector('input');
+        let hexInput = inputSystemNode.querySelector('input');
         validate.hexInput(hexInput.value);
         return "#" + hexInput.value;
       }
@@ -40,7 +42,7 @@ define(['util', 'validate', 'ColorState', 'CssProperty'], function(_, validate, 
     },
 
     updateExampleText: function(cssPropertyName, cssColorValue) {
-      var exampleTextNode = document.querySelector('.exampleText');
+      let exampleTextNode = document.querySelector('.exampleText');
       exampleTextNode.style[cssPropertyName] = cssColorValue;
     },
   };
