@@ -2,7 +2,7 @@
 define(['util', 'convert'], function (_, convert) {
 
 
-    var ColorState = function() {
+    var ColorState = function () {
 
         Object.defineProperties(this, {
             hex: {value: null, writable: true, enumerable: true},
@@ -17,12 +17,10 @@ define(['util', 'convert'], function (_, convert) {
     };
 
 
-
     ColorState.prototype.updateValue = function (valueType, value) {
         var functionName = 'setBy' + _.capitalize(valueType);
         this[functionName](value);
     };
-
 
 
     ColorState.prototype.setByHex = function (hex) {
@@ -33,25 +31,12 @@ define(['util', 'convert'], function (_, convert) {
         this.green = rgbObj.green;
         this.blue = rgbObj.blue;
         this.alpha = null;
-        // this.hue = convert.rgbToHue(this.red, this.green, this.blue);
-        // this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
-        // this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
     };
+
 
     ColorState.prototype.getHexCss = function () {
         return '#' + this.hex;
     };
-
-
-
-    ColorState.prototype.setByRed = function (redValue) {};
-    ColorState.prototype.setByGreen = function (greenValue) {};
-    ColorState.prototype.setByBlue = function (blueValue) {};
-    ColorState.prototype.setByAlpha = function (alphaValue) {};
-    ColorState.prototype.setByHue = function (hueValue) {};
-    ColorState.prototype.setBySaturation = function (saturationValue) {};
-    ColorState.prototype.setByLightness = function (lightnessValue) {};
-
 
 
     ColorState.prototype.setRgb = function(red, green, blue) {
@@ -74,6 +59,7 @@ define(['util', 'convert'], function (_, convert) {
             return Math.round(exactValue);
         }
     };
+
 
     return ColorState;
 });

@@ -31,7 +31,6 @@ var testSuites = [
   'tests/cssPropertySuite',
   'tests/convertSuite',
   'tests/colorStateSuite',
-  'tests/endToEndTest',
 ];
 
 

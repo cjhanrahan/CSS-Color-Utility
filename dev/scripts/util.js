@@ -1,5 +1,26 @@
+'use strict';
+
 define(function (){
+
     var util = {
+
+
+        // COLLECTIONS
+
+
+        listForEach: function (nodeList, func) {
+            for (var i = 0; i < nodeList.length; i++)
+                func(nodeList[i]);
+        },
+
+
+        objectForEach: function (object, func) {
+            for (var attribute in object)
+                if (object.hasOwnProperty(attribute))
+                    func(attribute, object[attribute]);
+        },
+
+
         selectorForEach: function (selector, func, parentNode) {
           
             if(parentNode === undefined)
@@ -12,27 +33,8 @@ define(function (){
 
 
 
-        selectorWithData: function (selector, dataName, dataValue){
-            var dataReq = dataValue ? '="' + dataValue + '"' : '';
-            return selector + '[data-' + dataName + dataReq + ']';
-        },
 
-
-
-        nodeListForEach: function (nodeList, func) {
-            for (var i = 0; i < nodeList.length; i++)
-                func(nodeList[i]);
-        },
-
-
-
-        objectForEach: function (object, func) {
-            for(var attribute in object) {
-                if(object.hasOwnProperty(attribute))
-                    func(attribute, object[attribute]);
-            }
-        },
-
+        // EVENTS
 
 
         triggerNativeEvent: function(eventName, eventTarget) {
@@ -40,7 +42,6 @@ define(function (){
           event.initEvent(eventName, true, false);
           eventTarget.dispatchEvent(event);
         },
-
 
 
         triggerCustomEvent: function(eventName, eventTarget) {
@@ -56,20 +57,20 @@ define(function (){
 
 
 
-        getEventData: function (event, dataName) {
-          if(!event.data)
-            event.data = {};
-          return event.data[dataName];
+
+        // STRINGS
+
+
+        capitalize: function (string) {
+            var firstLetter = string.charAt(0);
+            var restOfString = string.slice(1);
+            return firstLetter.toUpperCase() + restOfString;
         },
 
 
 
-        setEventData: function (event, dataName, dataValue) {
-          if(!event.data)
-            event.data = {};
-          event.data[dataName] = dataValue;
-        },
 
+        // MATH
 
 
         round: function (number, logBaseTen) {
@@ -88,11 +89,7 @@ define(function (){
 
 
 
-        capitalize: function (string) {
-            var firstLetter = string.charAt(0);
-            var restOfString = string.slice(1);
-            return firstLetter.toUpperCase() + restOfString;
-        },
+
     };
 
     return util;

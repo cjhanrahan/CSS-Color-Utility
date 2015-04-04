@@ -1,3 +1,5 @@
+'use strict';
+
 define(function () {
     var convert = {
 
@@ -20,16 +22,14 @@ define(function () {
         },
 
 
-
         rgbToHslString: function (red, green, blue) {
             var thisModule = this;
             var hue = thisModule.rgbToHue(red, green, blue);
             var saturation =  thisModule.rgbToSaturation(red, green, blue);
-            var lightness = thisModule.rgbToLightness(red, green, blue) + ")";
+            var lightness = thisModule.rgbToLightness(red, green, blue) + ')';
 
             return 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + ')';
         },
-
 
 
         rgbToHue: function(red, green, blue) {
@@ -47,8 +47,7 @@ define(function () {
 
             else if(maxColor === red) {
                 var pureRedHexagonalHue = 0;
-                hexagonalHue =
-                    (normalizedGreen - normalizedBlue) / chroma + pureRedHexagonalHue;
+                hexagonalHue = (normalizedGreen - normalizedBlue) / chroma + pureRedHexagonalHue;
 
                 if(hexagonalHue === 6)
                     hexagonalHue = 0;
@@ -70,14 +69,12 @@ define(function () {
         },
 
 
-
         rgbToChroma: function(red, green, blue) {
             var minColor = Math.min(red, green, blue);
             var maxColor = Math.max(red, green, blue);
 
             return (maxColor - minColor) / 255;
         },
-
 
 
         rgbToSaturation: function(red, green, blue) {
@@ -88,7 +85,6 @@ define(function () {
 
             return chroma / maximumChromaForLightness * 100;
         },
-
 
 
         rgbToLightness: function(red, green, blue) {
