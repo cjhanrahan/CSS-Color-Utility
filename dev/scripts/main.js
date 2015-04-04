@@ -1,3 +1,5 @@
+'use strict';
+
 requirejs.config({
   baseUrl: 'scripts',
 
@@ -33,8 +35,6 @@ var testSuites = [
 ];
 
 
-require(['custom-boot', 'app'], function (boot, app) {
-  require(testSuites, function () {
+require(testSuites, function () {
     window.runTests();
-  });
 });

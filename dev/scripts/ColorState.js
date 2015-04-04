@@ -1,15 +1,19 @@
+'use strict';
 define(['util', 'convert'], function (_, convert) {
 
 
     var ColorState = function() {
-        this.hex = null;
-        this.red = null;
-        this.green = null;
-        this.blue = null;
-        this.alpha = null;
-        this.hue = null;
-        this.saturation = null;
-        this.lightness = null;
+
+        Object.defineProperties(this, {
+            hex: {value: null, writable: true, enumerable: true},
+            red: {value: null, writable: true, enumerable: true},
+            green: {value: null, writable: true, enumerable: true},
+            blue: {value: null, writable: true, enumerable: true},
+            alpha: {value: null, writable: true, enumerable: true},
+            hue: {value: null, writable: true, enumerable: true},
+            saturation: {value: null, writable: true, enumerable: true},
+            lightness: {value: null, writable: true, enumerable: true}            
+        });
     };
 
 
@@ -24,7 +28,7 @@ define(['util', 'convert'], function (_, convert) {
     ColorState.prototype.setByHex = function (hex) {
         this.hex = hex;
 
-        rgbObj = convert.hexToRgb(hex);
+        var rgbObj = convert.hexToRgb(hex);
         this.red = rgbObj.red;
         this.green = rgbObj.green;
         this.blue = rgbObj.blue;
@@ -35,7 +39,7 @@ define(['util', 'convert'], function (_, convert) {
     };
 
     ColorState.prototype.getHexCss = function () {
-        return "#" + this.hex;
+        return '#' + this.hex;
     };
 
 
