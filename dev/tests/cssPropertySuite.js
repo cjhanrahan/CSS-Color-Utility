@@ -8,7 +8,7 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
 
         beforeEach(function () {
-            var backgroundSelector = '.cssProperty[data-css-property=backgroundColor]';
+            var backgroundSelector = '[data-css-property=backgroundColor]';
             var backgroundNode = document.querySelector(backgroundSelector);
 
             cssProperty = new CssProperty(backgroundNode);
@@ -35,19 +35,19 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
         });
        
 
-        it('should call the colorState\'s updateValue after an input event on an HTML input', function () {
-            spyOn(cssProperty.colorState, 'updateValue');
-            var hexInputNode = cssProperty.rootNode.querySelector('input');
-            _.triggerNativeEvent('input', hexInputNode);
-            expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
-        });
-
-
         it('should call updateSampleColor after an input event on an HTML input', function () {
             spyOn(cssProperty, 'updateSampleColor');
             var hexInputNode = cssProperty.rootNode.querySelector('input');
             _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.updateSampleColor).toHaveBeenCalled();
+        });
+
+
+        it('should call the colorState\'s updateValue after an input event on an HTML input', function () {
+            spyOn(cssProperty.colorState, 'updateValue');
+            var hexInputNode = cssProperty.rootNode.querySelector('input');
+            _.triggerNativeEvent('input', hexInputNode);
+            expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
         });
 
 
@@ -57,7 +57,15 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
 
         it('should change HTML inputs in response to changes in it\'s colorState', function () {
-            expect(false).toBe(true);
+            var redRangeSelector = '[data-value-type=red] [type=range]';
+            var redRangeNode = document.querySelector(redRangeSelector);
+            var initialValue = redRangeNode.value;
+            
+            cssProperty.colorState.setByHex('AAA');
+
+            var finalValue = redRangeNode.value;
+
+            expect(initialValue).not.toBe(finalValue);
         });
     });
 });

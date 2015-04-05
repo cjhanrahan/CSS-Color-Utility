@@ -4,17 +4,21 @@ define(['util', 'convert'], function (_, convert) {
 
     var ColorState = function () {
 
-        Object.defineProperties(this, {
-            hex: {value: null, writable: true, enumerable: true},
-            red: {value: null, writable: true, enumerable: true},
-            green: {value: null, writable: true, enumerable: true},
-            blue: {value: null, writable: true, enumerable: true},
-            alpha: {value: null, writable: true, enumerable: true},
-            hue: {value: null, writable: true, enumerable: true},
-            saturation: {value: null, writable: true, enumerable: true},
-            lightness: {value: null, writable: true, enumerable: true}            
-        });
+        var valueTypes = [ 
+            'hex', 'red', 'green', 'blue', 'hue', 
+            'alpha', 'hue', 'saturation', 'lightness'
+        ];
+
+        valueTypes.forEach(function (valueType) {
+            
+            Object.defineProperty(this, valueType, {
+                value: null,
+                writable: true,
+                enumerable: false
+            });
+        }.bind(this));
     };
+
 
 
     ColorState.prototype.updateValue = function (valueType, value) {

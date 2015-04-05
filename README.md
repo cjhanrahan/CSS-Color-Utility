@@ -10,5 +10,7 @@ The features I want implement are:
 
 I'm mainly doing this because I want to practice
 - DOM manipulation without JQuery (as described at http://youmightnotneedjquery.com/)
-- Complex event-driven Javascript
+- Working without popular frameworks
+- Writing clean code
+- Using Object.defineProperties
 - Flex boxes (as described here http://css-tricks.com/snippets/css/a-guide-to-flexbox/)
