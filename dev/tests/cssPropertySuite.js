@@ -62,7 +62,7 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
             var initialValue = redRangeNode.value;
             
             cssProperty.colorState.setByHex('AAA');
-
+            cssProperty.updateInputs();
             var finalValue = redRangeNode.value;
 
             expect(initialValue).not.toBe(finalValue);
