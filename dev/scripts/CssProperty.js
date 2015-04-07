@@ -1,8 +1,9 @@
 'use strict';
 
-define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, validate) {
+define(['app', 'util', 'ColorState', 'validate', 'EventListener'],
+    function (app, _, ColorState, validate, EventListener) {
       
-    var CssProperty = function(rootNode){
+    var CssProperty = function (rootNode) {
         Object.defineProperties(this, {
             rootNode: {
                 value: rootNode, 
@@ -25,8 +26,6 @@ define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, 
                 writable: false,
             }
         });
-
-        this.attachListeners();
     };
 
 
@@ -40,7 +39,7 @@ define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, 
 
             _.listForEach(inputNodes, function (inputNode) {
 
-                inputNode.addEventListener('input', function () {
+                var onInput = function () {
                     var newValue = inputNode.value;
                     var validationResults = validate[valueType](newValue);
                     if (validationResults.isValid) {
@@ -52,14 +51,20 @@ define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, 
                     } else {
                         app.showValidationText(validationResults.reason);
                     }
-                });
+                };
+                var inputListener = new EventListener('input', inputNode, onInput)
+                    .attach();
+
+                thisProperty.inputListeners.push(inputListener);
             });
         });
+        return this;
     };
 
 
     CssProperty.prototype.updateSampleColor = function (colorCss) {
         this.sampleDiv.style[this.propertyName] = colorCss;
+        return this;
     };
 
 
@@ -76,11 +81,15 @@ define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, 
                 inputNode.value = valueToSet;
             });
         });
+        return this;
     };
 
 
-    CssProperty.prototype.teardown = function () {
-
+    CssProperty.prototype.detachListeners = function () {
+        this.inputListeners.forEach(function (listener) {
+            listener.detach();
+        });
+        return this;
     };
 
 

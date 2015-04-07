@@ -1,7 +1,7 @@
 {
     "funcscope": false,
     "undef": false,
-    "globalstrict": true,
+    "globalstrict": false,
     "latedef": true,
     "globals": {
         "require": true,
@@ -10,6 +10,6 @@
         "console": true
     },
     "jasmine": true,
-    "esnext": true
+    "esnext": false
 
 }

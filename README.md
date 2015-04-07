@@ -11,6 +11,6 @@ The features I want implement are:
 I'm mainly doing this because I want to practice
 - Working without popular frameworks (including JQuery)
 - Vanilla Javascript
-- Writing clean code
+- Writing clean, readable code
 - Using Object.defineProperties
 - Flex boxes

@@ -5,15 +5,17 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
     describe('The background-color CssProperty ', function () {
 
-        var backgroundSelector = '[data-css-property = backgroundColor]';
-        var backgroundNode = document.querySelector(backgroundSelector);
-        var hexInputNodeSelector = '[data-value-type = hex] input';
-        var hexInputNode = backgroundNode.querySelector(hexInputNodeSelector);
-        var cssProperty = new CssProperty(backgroundNode);
+
+        var cssProperty, hexInputNode;
 
 
         beforeEach(function () {
-
+            var backgroundSelector = '[data-css-property=backgroundColor]';
+            var backgroundNode = document.querySelector(backgroundSelector);
+            var hexInputNodeSelector = '[data-value-type=hex] input';
+            hexInputNode = backgroundNode.querySelector(hexInputNodeSelector);
+            cssProperty = new CssProperty(backgroundNode);
+            cssProperty.attachListeners();
             cssProperty.colorState.setByHex('FFF');
             cssProperty.updateInputs();
         });
@@ -68,5 +70,10 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
             expect(initialValue).not.toBe(finalValue);
         });
+
+        afterEach(function () {
+            cssProperty.detachListeners();
+        });
+
     });
 });

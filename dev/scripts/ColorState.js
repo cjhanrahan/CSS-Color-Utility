@@ -19,9 +19,20 @@ define(['util', 'convert'], function (_, convert) {
     };
 
 
+    ColorState.prototype.getValue = function(attributeName) {
+        if (attributeName === 'hex')
+            return this.hex;
+        else {
+            var exactValue = this[attributeName];
+            return Math.round(exactValue);
+        }
+    };
+
+
     ColorState.prototype.updateValue = function (valueType, value) {
         var functionName = 'setBy' + _.capitalize(valueType);
         this[functionName](value);
+        return this;
     };
 
 
@@ -32,7 +43,29 @@ define(['util', 'convert'], function (_, convert) {
         this.red = rgbObj.red;
         this.green = rgbObj.green;
         this.blue = rgbObj.blue;
-        this.alpha = null;
+        this.setByRgba();
+        return this;
+    };
+
+
+    ColorState.prototype.setByRed = function (red) {
+        this.red = red;
+        this.setByRgba();
+        return this;
+    };
+
+
+    ColorState.prototype.setByGreen = function (green) {
+        this.green = green;
+        this.setByRgba();
+        return this;
+    };
+
+
+    ColorState.prototype.setByBlue = function (blue) {
+        this.blue = blue;
+        this.setByRgba();
+        return this;
     };
 
 
@@ -41,25 +74,11 @@ define(['util', 'convert'], function (_, convert) {
     };
 
 
-    ColorState.prototype.setRgb = function(red, green, blue) {
-        this.hex = red.toString(16) + green.toString(16) + blue.toString(16);
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        this.alpha = null;
-        this.hue = convert.rgbToHue(red, green, blue);
-        this.saturation = convert.rgbToSaturation(red, green, blue);
-        this.lightness = convert.rgbToLightness(red, green, blue);
-    };
-
-
-    ColorState.prototype.getValue = function(attributeName) {
-        if (attributeName === 'hex')
-            return this.hex;
-        else {
-            var exactValue = this[attributeName];
-            return Math.round(exactValue);
-        }
+    ColorState.prototype.setByRgba = function() {
+        this.hue = convert.rgbToHue(this.red, this.green, this.blue);
+        this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
+        this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
+        return this;
     };
 
 

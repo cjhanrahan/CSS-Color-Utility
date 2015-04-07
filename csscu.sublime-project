@@ -7,6 +7,6 @@
 
     "build_systems": [{
       "name": "Development",
-      "cmd": ["grunt"]
+      "cmd": ["gulp"]
     }]
 }
