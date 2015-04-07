@@ -1,6 +1,6 @@
 'use strict';
 
-define(['util', 'ColorState'], function (_, ColorState) {
+define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
       
     var CssProperty = function(rootNode){
         Object.defineProperties(this, {
@@ -26,7 +26,6 @@ define(['util', 'ColorState'], function (_, ColorState) {
     };
 
 
-
     CssProperty.prototype.attachListeners = function () {
         var thisProperty = this;
         var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
@@ -37,12 +36,16 @@ define(['util', 'ColorState'], function (_, ColorState) {
 
             _.listForEach(inputNodes, function (inputNode) {
 
-                inputNode.addEventListener('input', function () {
+                inputNode.addEventListener('input', function (event) {
                     var newValue = inputNode.value;
-                    thisProperty.colorState.updateValue(valueType, newValue);
-                    var newCss = thisProperty.colorState.getHexCss();
-                    thisProperty.updateSampleColor(newCss);
-                    thisProperty.updateInputs();
+                    var newValueIsValid = validate[valueType](newValue);
+                    if (newValueIsValid) {
+                        thisProperty.colorState.updateValue(valueType, newValue);
+                        var newCss = thisProperty.colorState.getHexCss();
+                        thisProperty.updateSampleColor(newCss);
+                        thisProperty.updateInputs();
+                    } else {
+                    }
                 });
             });
         });
@@ -51,6 +54,7 @@ define(['util', 'ColorState'], function (_, ColorState) {
 
     CssProperty.prototype.updateSampleColor = function (colorCss) {
         this.sampleDiv.style[this.propertyName] = colorCss;
+        console.log('updateSampleColor was called');
     };
 
 
@@ -65,8 +69,10 @@ define(['util', 'ColorState'], function (_, ColorState) {
 
             _.listForEach(inputNodes, function (inputNode) {
                 inputNode.value = valueToSet;
+                updateCount++;
             });
         });
+
     };
 
 

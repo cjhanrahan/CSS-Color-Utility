@@ -2,17 +2,20 @@
 
 define(['util', 'CssProperty'], function (_, CssProperty) {
 
+
     describe('The background-color CssProperty ', function () {
 
-        var cssProperty = null;
+        var backgroundSelector = '[data-css-property = backgroundColor]';
+        var backgroundNode = document.querySelector(backgroundSelector);
+        var hexInputNodeSelector = '[data-value-type = hex] input';
+        var hexInputNode = backgroundNode.querySelector(hexInputNodeSelector);
+        var cssProperty = new CssProperty(backgroundNode);
 
 
         beforeEach(function () {
-            var backgroundSelector = '[data-css-property=backgroundColor]';
-            var backgroundNode = document.querySelector(backgroundSelector);
 
-            cssProperty = new CssProperty(backgroundNode);
             cssProperty.colorState.setByHex('FFF');
+            cssProperty.updateInputs();
         });
 
 
@@ -37,7 +40,6 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
         it('should call updateSampleColor after an input event on an HTML input', function () {
             spyOn(cssProperty, 'updateSampleColor');
-            var hexInputNode = cssProperty.rootNode.querySelector('input');
             _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.updateSampleColor).toHaveBeenCalled();
         });
@@ -45,7 +47,6 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
         it('should call the colorState\'s updateValue after an input event on an HTML input', function () {
             spyOn(cssProperty.colorState, 'updateValue');
-            var hexInputNode = cssProperty.rootNode.querySelector('input');
             _.triggerNativeEvent('input', hexInputNode);
             expect(cssProperty.colorState.updateValue).toHaveBeenCalled();
         });
@@ -57,7 +58,7 @@ define(['util', 'CssProperty'], function (_, CssProperty) {
 
 
         it('should change HTML inputs in response to changes in it\'s colorState', function () {
-            var redRangeSelector = '[data-value-type=red] [type=range]';
+            var redRangeSelector = '[data-value-type = hex] input';
             var redRangeNode = document.querySelector(redRangeSelector);
             var initialValue = redRangeNode.value;
             

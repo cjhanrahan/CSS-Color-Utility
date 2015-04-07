@@ -5,20 +5,18 @@ define(['util', 'convert'], function (_, convert) {
     var ColorState = function () {
 
         var valueTypes = [ 
-            'hex', 'red', 'green', 'blue', 'hue', 
-            'alpha', 'hue', 'saturation', 'lightness'
+            'hex', 'red', 'green', 'blue', 'alpha', 
+            'hue', 'saturation', 'lightness'
         ];
 
         valueTypes.forEach(function (valueType) {
-            
             Object.defineProperty(this, valueType, {
                 value: null,
                 writable: true,
-                enumerable: false
+                enumerable: true
             });
         }.bind(this));
     };
-
 
 
     ColorState.prototype.updateValue = function (valueType, value) {

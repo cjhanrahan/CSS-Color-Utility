@@ -3,7 +3,13 @@
     "undef": false,
     "globalstrict": true,
     "latedef": true,
-    "globals": {"require": true, "requirejs": true, "define": true},
+    "globals": {
+        "require": true,
+        "requirejs": true,
+        "define": true,
+        "console": true
+    },
     "jasmine": true,
     "esnext": true
+
 }

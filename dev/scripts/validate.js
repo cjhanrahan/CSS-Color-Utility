@@ -3,7 +3,7 @@
 define(function () {
 
   var validate = {
-    hexInput: function (hexValue) {
+    hex: function (hexValue) {
         if (hexValue.length !== 3 && hexValue.length !== 6)
             return false;
 
