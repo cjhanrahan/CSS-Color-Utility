@@ -4,14 +4,23 @@ define(function () {
 
   var validate = {
     hex: function (hexValue) {
-        if (hexValue.length !== 3 && hexValue.length !== 6)
-            return false;
+
+        if (hexValue.length !== 3 && hexValue.length !== 6) {
+            return {
+                isValid: false,
+                reason: 'Hex value is an invalid length'
+            };
+        }
 
         var invalidCharacterRegex = /[^0-9A-F]/i;
-        if (hexValue.match(invalidCharacterRegex) !== null)
-            return false;
+        if (hexValue.match(invalidCharacterRegex) !== null) {
+            return {
+                isValid: false,
+                reason: 'Hex value has an invalid character'
+            };
+        }
 
-        return true;
+        return {isValid: true, reason: null};
     }
   };
 

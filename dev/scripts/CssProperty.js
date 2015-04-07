@@ -1,6 +1,6 @@
 'use strict';
 
-define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
+define(['app', 'util', 'ColorState', 'validate'], function (app, _, ColorState, validate) {
       
     var CssProperty = function(rootNode){
         Object.defineProperties(this, {
@@ -19,6 +19,10 @@ define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
             sampleDiv: {
                 value: document.querySelector('.exampleText'),
                 writable: false
+            },
+            inputListeners: {
+                value: [],
+                writable: false,
             }
         });
 
@@ -36,15 +40,17 @@ define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
 
             _.listForEach(inputNodes, function (inputNode) {
 
-                inputNode.addEventListener('input', function (event) {
+                inputNode.addEventListener('input', function () {
                     var newValue = inputNode.value;
-                    var newValueIsValid = validate[valueType](newValue);
-                    if (newValueIsValid) {
+                    var validationResults = validate[valueType](newValue);
+                    if (validationResults.isValid) {
                         thisProperty.colorState.updateValue(valueType, newValue);
                         var newCss = thisProperty.colorState.getHexCss();
                         thisProperty.updateSampleColor(newCss);
                         thisProperty.updateInputs();
+                        app.showValidationText('');
                     } else {
+                        app.showValidationText(validationResults.reason);
                     }
                 });
             });
@@ -54,7 +60,6 @@ define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
 
     CssProperty.prototype.updateSampleColor = function (colorCss) {
         this.sampleDiv.style[this.propertyName] = colorCss;
-        console.log('updateSampleColor was called');
     };
 
 
@@ -69,9 +74,12 @@ define(['util', 'ColorState', 'validate'], function (_, ColorState, validate) {
 
             _.listForEach(inputNodes, function (inputNode) {
                 inputNode.value = valueToSet;
-                updateCount++;
             });
         });
+    };
+
+
+    CssProperty.prototype.teardown = function () {
 
     };
 
