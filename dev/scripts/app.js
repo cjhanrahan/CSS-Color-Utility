@@ -14,7 +14,6 @@ define(['CssProperty'], function (CssProperty) {
    
     start: function() {
       window.runTests();
-      this.setUpApp();
     },
 
     setUpApp: function () {

@@ -34,7 +34,15 @@ var testSuites = [
   'tests/validateSuite'
 ];
 
-
+// @if MODE='test'
 require(testSuites, function () {
     window.runTests();
 });
+// @endif
+
+// @if MODE='normal'
+require(['app'], function (app) {
+    app.setUpApp();
+});
+
+//@endif
