@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var preprocess = require('gulp-preprocess');
 var jade = require('gulp-jade');
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -67,8 +67,7 @@ gulp.task('jade', ['clean'], function () {
 
 
 gulp.task('sass', ['clean'], function () {
-    return gulp.src('dev/css/*.scss')
-        .pipe(sass())
+    return sass('dev/css/')
         .pipe(autoprefixer({browsers: 'last 2 versions'}))
         .pipe(gulp.dest('./build/css'));
 });
