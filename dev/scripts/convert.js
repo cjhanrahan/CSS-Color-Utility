@@ -21,6 +21,9 @@ define(function () {
             return rgbObj;
         },
 
+        rgbToHex: function (red, green, blue) {
+            return red.toString(16) + green.toString(16) + blue.toString(16);
+        },
 
         rgbToHslString: function (red, green, blue) {
             var thisModule = this;
