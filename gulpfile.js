@@ -12,14 +12,25 @@ gulp.task('clean', function (callback) {
 });
 
 
-gulp.task('scripts', ['clean'], function () {
-    gulp.src('dev/scripts/*.js')
+gulp.task('main', ['clean'], function () {
+    gulp.src('dev/scripts/main.js')
         .pipe(preprocess({
             context: { MODE:'normal' }
         }))
         .pipe(gulp.dest('build/scripts'));
 
-    return gulp.src('dev/scripts/*.js')
+    return gulp.src('dev/scripts/main.js')
+        .pipe(preprocess({
+            context: { MODE:'test' }
+        }))
+        .pipe(rename('testsMain.js'))
+        .pipe(gulp.dest('build/scripts'));
+
+});
+
+gulp.task('scripts', ['clean'], function () {
+        
+    return gulp.src('dev/scripts/!(main).js')
         .pipe(preprocess({
             context: { MODE:'normal' }
         }))
@@ -63,5 +74,5 @@ gulp.task('sass', ['clean'], function () {
 });
 
 
-gulp.task('default', ['scripts', 'tests', 'lib', 'jade', 'sass']);
+gulp.task('default', ['main', 'scripts', 'tests', 'lib', 'jade', 'sass']);
 

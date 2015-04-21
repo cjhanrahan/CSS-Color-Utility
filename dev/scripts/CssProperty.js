@@ -1,7 +1,7 @@
 'use strict';
 
-define(['app', 'util', 'ColorState', 'validate', 'EventListener'],
-    function (app, _, ColorState, validate, EventListener) {
+define(['util', 'ColorState', 'validate', 'EventListener'],
+    function (_, ColorState, validate, EventListener) {
       
     var CssProperty = function (rootNode) {
         Object.defineProperties(this, {
@@ -30,6 +30,7 @@ define(['app', 'util', 'ColorState', 'validate', 'EventListener'],
 
 
     CssProperty.prototype.attachListeners = function () {
+        var app = require('app');
         var thisProperty = this;
         var colorValueNodes = this.rootNode.querySelectorAll('.colorValue');
 

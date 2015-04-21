@@ -20,7 +20,11 @@ define(['CssProperty'], function (CssProperty) {
         var backgroundColorSelector = '[data-css-property=backgroundColor]';
         var backgroundColorNode = document.querySelector(backgroundColorSelector);
         this.properties.backgroundColor = new CssProperty(backgroundColorNode);
-        this.properties.backgroundColor.attachListeners();
+        
+        var backgroundColor = this.properties.backgroundColor;
+        backgroundColor.attachListeners();
+        backgroundColor.colorState.setByHex('FFF');
+        backgroundColor.updateInputs();
     },
 
     showValidationText: function (validationString) {

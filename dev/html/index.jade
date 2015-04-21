@@ -10,8 +10,11 @@ html
             script(src="lib/jasmine-2.1.3/jasmine.js")
             script(src="lib/jasmine-2.1.3/jasmine-html.js")
             script(src="lib/jasmine-2.1.3/custom-boot.js")
+            script(data-main="scripts/testsMain", src="lib/require.js")
+        else
+            script(data-main="scripts/main", src="lib/require.js")
 
-        script(data-main="scripts/main", src="lib/require.js")
+
         title CSS Color Picker
 
 
