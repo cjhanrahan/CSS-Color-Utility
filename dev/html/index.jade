@@ -21,7 +21,11 @@ html
 
 
     body
-        h1 CSS Color Picker
+        h1
+            if includeTests
+                a(href="index.html") CSS Color Picker
+            else
+                a(href="tests.html") CSS Color Picker
         .appContainer
 
 
@@ -48,15 +52,15 @@ html
 
                 .colorValue(data-value-type="hue")
                     label Hue
-                    input(type="range", min="0", max="255", step="1")
+                    input(type="range", min="0", max="360", step="1")
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="saturation")
                     label Saturation
-                    input(type="range", min="0", max="356", step="1")
+                    input(type="range", min="0", max="100", step="1")
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="lightness")
                     label Lightness
-                    input(type="range", min="0", max="356", step="1")
+                    input(type="range", min="0", max="100", step="1")
                     input(type="text", maxlength="3")
 
 
@@ -83,24 +87,24 @@ html
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="alpha")
                     label Alpha
-                    input(type="range", min="0", max="100", step="1")
+                    input(type="range", min="0", max="1", step="0.01")
                     input(type="text", maxlength="3")
 
                 .colorValue(data-value-type="hue")
                     label Hue
-                    input(type="range", min="0", max="255", step="1")
+                    input(type="range", min="0", max="360", step="1")
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="saturation")
                     label Saturation
-                    input(type="range", min="0", max="356", step="1")
+                    input(type="range", min="0", max="100", step="1")
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="lightness")
                     label Lightness
-                    input(type="range", min="0", max="356", step="1")
+                    input(type="range", min="0", max="100", step="1")
                     input(type="text", maxlength="3")
                 .colorValue(data-value-type="alpha")
                     label Alpha
-                    input(type="range", min="0", max="100", step="1")
+                    input(type="range", min="0", max="1", step="0.01")
                     input(type="text", maxlength="3")
 
 
