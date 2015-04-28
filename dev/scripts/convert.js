@@ -1,6 +1,6 @@
 'use strict';
 
-define(function () {
+define(['util'], function (_) {
     var convert = {
 
         hexToRgb: function(hexString) {
@@ -22,8 +22,10 @@ define(function () {
         },
 
         rgbToHex: function (red, green, blue) {
-            return red.toString(16) + green.toString(16) + blue.toString(16);
+            var hexString = red.toString(16) + green.toString(16) + blue.toString(16);
+            return hexString.toUpperCase();
         },
+
 
         rgbToHslString: function (red, green, blue) {
             var thisModule = this;
@@ -44,16 +46,15 @@ define(function () {
             var chroma = thisModule.rgbToChroma(red, green, blue);
             var hexagonalHue;
 
-            if(chroma === 0) {
-                return null;
-            }
+            if(chroma === 0)
+                return [0, 360];
 
             else if(maxColor === red) {
                 var pureRedHexagonalHue = 0;
-                hexagonalHue = (normalizedGreen - normalizedBlue) / chroma + pureRedHexagonalHue;
+                var possiblyNegativeHexagonalHue =
+                    (normalizedGreen - normalizedBlue) / chroma + pureRedHexagonalHue;
 
-                if(hexagonalHue === 6)
-                    hexagonalHue = 0;
+                hexagonalHue = _.modulo(possiblyNegativeHexagonalHue, 6);
             }
 
             else if(maxColor === green) {
@@ -84,9 +85,12 @@ define(function () {
             var thisModule = this;
             var chroma = thisModule.rgbToChroma(red, green, blue);
             var lightness = thisModule.rgbToLightness(red, green, blue) / 100;
-            var maximumChromaForLightness = 1 - Math.abs(2* lightness - 1);
+            var maximumChromaForLightness = 1 - Math.abs(2 * lightness - 1);
 
-            return chroma / maximumChromaForLightness * 100;
+            if (maximumChromaForLightness === 0)
+                return 0;
+            else
+                return chroma / maximumChromaForLightness * 100;
         },
 
 

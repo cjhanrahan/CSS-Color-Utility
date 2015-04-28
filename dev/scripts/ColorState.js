@@ -78,7 +78,19 @@ define(['util', 'convert'], function (_, convert) {
 
 
     ColorState.prototype.setHslFromRgba = function() {
-        this.hue = convert.rgbToHue(this.red, this.green, this.blue);
+        var hueResult = convert.rgbToHue(this.red, this.green, this.blue);
+        var hueIsAmbiguous = hueResult instanceof Array;
+        if (!hueIsAmbiguous)
+            this.hue = hueResult;
+        else {
+            var distancesFromCurrentValue = hueResult.map(function (possibleHue) {
+                return Math.abs(this.hue - possibleHue);
+            }.bind(this));
+            var closetValue = Math.min(distancesFromCurrentValue);
+            var indexOfClosestValue = distancesFromCurrentValue.indexOf(closetValue);
+            return hueResult[indexOfClosestValue];
+
+        }
         this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
         this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
         return this;

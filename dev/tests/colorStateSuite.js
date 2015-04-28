@@ -26,17 +26,5 @@ define(['util', 'ColorState'], function (_, ColorState) {
             colorState.updateValue('hex', valueToCheck);
             expect(ColorState.hex === valueToCheck);
         });
-
-
-        it('should have an setByRgba function which is called after each call to setBy[red/green/blue]', function () {
-            expect(colorState.setByRgba).toEqual(jasmine.any(Function));
-            spyOn(colorState, 'setByRgba');
-
-            ['red', 'green', 'blue'].forEach(function(valueType) {
-                var functionToCall = colorState['setBy' + _.capitalize(valueType)].bind(colorState);
-                functionToCall(55);
-                expect(colorState.setByRgba).toHaveBeenCalled();
-            });
-        });
     });
 });

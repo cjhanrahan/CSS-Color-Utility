@@ -8,9 +8,9 @@ define(function (){
         // COLLECTIONS
 
 
-        listForEach: function (nodeList, func) {
-            for (var i = 0; i < nodeList.length; i++)
-                func(nodeList[i]);
+        listForEach: function (list, func) {
+            for (var i = 0; i < list.length; i++)
+                func(list[i], i);
         },
 
 
@@ -21,16 +21,14 @@ define(function (){
         },
 
 
-        selectorForEach: function (selector, func, parentNode) {
-          
-            if(parentNode === undefined)
-            parentNode = document;
 
-            var nodes = parentNode.querySelectorAll(selector);
+        twoListsAreEqual: function (list1, list2) {
+            for (var i = 0; i < list1.length; i++)
+                if (list1[i] !== list2[i])
+                    return false;
 
-            Array.prototype.forEach.call(nodes, func);
+            return true;
         },
-
 
 
 
@@ -88,8 +86,10 @@ define(function (){
         },
 
 
-
-
+        modulo: function(dividend, divisor) {
+            var equivalentDivisor = ((dividend % divisor) + divisor);
+            return equivalentDivisor % divisor;
+        }
     };
 
     return util;

@@ -35,7 +35,7 @@ var testSuites = [
 ];
 
 // @if MODE='test'
-require(testSuites, function () {
+require(['app'].concat(testSuites), function () {
     window.runTests();
 });
 // @endif

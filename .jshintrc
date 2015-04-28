@@ -1,7 +1,6 @@
 {
     "funcscope": false,
     "undef": false,
-    "globalstrict": false,
     "latedef": true,
     "globals": {
         "require": true,
