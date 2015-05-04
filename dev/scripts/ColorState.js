@@ -71,6 +71,12 @@ define(['util', 'convert'], function (_, convert) {
         return this;
     };
 
+    ColorState.prototype.setByHue = function (hueString) {
+        this.hue = Number(hueString);
+        this.setRgbaFromHsl();
+        this.setHexFromRgba();
+    };
+
 
     ColorState.prototype.getHexCss = function () {
         return '#' + this.hex;
@@ -96,10 +102,14 @@ define(['util', 'convert'], function (_, convert) {
         return this;
     };
 
+
     ColorState.prototype.setHexFromRgba = function () {
         this.hex = convert.rgbToHex(this.red, this.green, this.blue);
     };
 
 
+    ColorState.prototype.setRgbaFromHsl = function () {
+
+    };
     return ColorState;
 });

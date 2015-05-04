@@ -2,11 +2,11 @@
 
 define(['util', 'ColorState', 'validate', 'EventListener'],
     function (_, ColorState, validate, EventListener) {
-      
+
     var CssProperty = function (rootNode) {
         Object.defineProperties(this, {
             rootNode: {
-                value: rootNode, 
+                value: rootNode,
                 writable: false
             },
             colorState: {

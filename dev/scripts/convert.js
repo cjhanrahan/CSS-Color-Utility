@@ -99,6 +99,14 @@ define(['util'], function (_) {
             var maxColor = Math.max(red, green, blue);
 
             return (1/2) * (minColor + maxColor) / 255 * 100;
+        },
+
+
+        hslToRgb: function(hue, saturation, lightness) {
+            var normalizedSaturation = saturation / 100;
+            var normalizedLightness = lightness / 100;
+            var chroma = 1 -  Math.abs(2 * normalizedLightness - 1) * normalizedSaturation;
+            var hexagonalHue = hue / 60;
         }
     };
 
