@@ -12,7 +12,7 @@ define (['convert'], function (convert) {
         ];
 
         function testHexToRgb(inputHex, desiredRgb) {
-            var rgbString = 'rgb(' + desiredRgb.red + ',' + desiredRgb.green + ',' + desiredRgb.blue + ')';
+            var rgbString = getRgbStringFrom(desiredRgb);
             it('should convert ' + inputHex + ' to ' + rgbString, function () {
                 var rgbFromConvert = convert.hexToRgb(inputHex);
                 expect(rgbFromConvert).toEqual(desiredRgb);
@@ -26,19 +26,20 @@ define (['convert'], function (convert) {
 
 
         var valuesForRgbToHue = [
-            {rgb: {red: 0,   green: 0,   blue: 255}, hue: 240     },
-            {rgb: {red: 101, green: 62,  blue: 82 }, hue: 329     },
-            {rgb: {red: 170, green: 170, blue: 170}, hue: [0, 360]}
+            {rgb: {red: 0,   green: 0,   blue: 255}, hue: 240},
+            {rgb: {red: 101, green: 62,  blue: 82 }, hue: 329},
+            {rgb: {red: 170, green: 170, blue: 170}, hue: NaN}
         ];
 
         function testRgbToHue(inputRgb, desiredHue) {
-            var rgbString = 'rgb(' + inputRgb.red + ',' + inputRgb.green + ',' + inputRgb.blue + ')';
+            var rgbString = getRgbStringFrom(inputRgb);
             it ('should convert ' + rgbString + 'to a hue of ' + desiredHue, function () {
                 var hueFromConvert = convert.rgbToHue(inputRgb.red, inputRgb.green, inputRgb.blue);
                 if (desiredHue instanceof Array)
                     expect(hueFromConvert).toEqual(desiredHue);
-                else
+                else {
                     expect(Math.round(hueFromConvert)).toEqual(desiredHue);
+                }
             });
         }
 
@@ -55,7 +56,7 @@ define (['convert'], function (convert) {
         ];
 
         function testRgbToSaturation(inputRgb, desiredSaturation) {
-            var rgbString = 'rgb(' + inputRgb.red + ',' + inputRgb.green + ',' + inputRgb.blue + ')';
+            var rgbString = getRgbStringFrom(inputRgb);
             it ('should convert ' + rgbString + 'to a saturation of ' + desiredSaturation, function () {
                 var saturationFromConvert = convert.rgbToSaturation(inputRgb.red, inputRgb.green, inputRgb.blue);
                 expect(Math.round(saturationFromConvert)).toEqual(desiredSaturation);
@@ -75,7 +76,7 @@ define (['convert'], function (convert) {
         ];
 
         function testRgbToLightness(inputRgb, desiredLightness) {
-            var rgbString = 'rgb(' + inputRgb.red + ',' + inputRgb.green + ',' + inputRgb.blue + ')';
+            var rgbString = getRgbStringFrom(inputRgb);
             it ('should convert ' + rgbString + 'to a lightness of ' + desiredLightness, function () {
                 var lightnessFromConvert = convert.rgbToLightness(inputRgb.red, inputRgb.green, inputRgb.blue);
                 expect(Math.round(lightnessFromConvert)).toEqual(desiredLightness);
@@ -85,5 +86,56 @@ define (['convert'], function (convert) {
         valuesForRgbToLightness.forEach(function (valuesObject) {
             testRgbToLightness(valuesObject.rgb, valuesObject.lightness);
         });
+
+
+
+        var valuesForHslToRgb = [
+            {
+                hsl: {hue: 235, saturation: 80,  lightness: 34 },
+                rgb: {red: 17,  green: 29,       blue: 156     }
+            }
+        ];
+
+        function testHslToRgb(inputHsl, desiredRgb) {
+            var hslString = getHslStringFrom(inputHsl);
+            it('should convert ' + hslString + ' to a red value of ' + desiredRgb.red, function () {
+                var rgbFromConvert = convert.hslToRgb(
+                    inputHsl.hue,
+                    inputHsl.saturation,
+                    inputHsl.lightness
+                );
+                expect(Math.round(rgbFromConvert.red)).toEqual(desiredRgb.red);
+            });
+            it('should convert ' + hslString + ' to a blue value of ' + desiredRgb.blue, function () {
+                var rgbFromConvert = convert.hslToRgb(
+                    inputHsl.hue,
+                    inputHsl.saturation,
+                    inputHsl.lightness
+                );
+                expect(Math.round(rgbFromConvert.blue)).toEqual(desiredRgb.blue);
+            });
+            it('should convert ' + hslString + ' to a green value of ' + desiredRgb.green, function () {
+                var rgbFromConvert = convert.hslToRgb(
+                    inputHsl.hue,
+                    inputHsl.saturation,
+                    inputHsl.lightness
+                );
+                expect(Math.round(rgbFromConvert.green)).toEqual(desiredRgb.green);
+            });
+        }
+
+        valuesForHslToRgb.forEach(function (valuesObject) {
+            testHslToRgb(valuesObject.hsl, valuesObject.rgb);
+        });
+
+
+
+        function getRgbStringFrom(rgb) {
+            return 'rgb(' + rgb.red + ',' + rgb.green + ',' + rgb.blue + ')';
+        }
+
+        function getHslStringFrom(hsl) {
+            return 'hsl(' + hsl.hue + ',' + hsl.saturation + ',' + hsl.lightness + ')';
+        }
     });
 });

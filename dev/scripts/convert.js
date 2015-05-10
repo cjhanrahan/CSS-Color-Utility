@@ -22,7 +22,7 @@ define(['util'], function (_) {
         },
 
         rgbToHex: function (red, green, blue) {
-            var hexString = red.toString(16) + green.toString(16) + blue.toString(16);
+            var hexString = Math.round(red).toString(16) + Math.round(green).toString(16) + Math.round(blue).toString(16);
             return hexString.toUpperCase();
         },
 
@@ -47,7 +47,7 @@ define(['util'], function (_) {
             var hexagonalHue;
 
             if(chroma === 0)
-                return [0, 360];
+                return NaN;
 
             else if(maxColor === red) {
                 var pureRedHexagonalHue = 0;
@@ -105,8 +105,56 @@ define(['util'], function (_) {
         hslToRgb: function(hue, saturation, lightness) {
             var normalizedSaturation = saturation / 100;
             var normalizedLightness = lightness / 100;
-            var chroma = 1 -  Math.abs(2 * normalizedLightness - 1) * normalizedSaturation;
+            var chroma = (1 -  Math.abs(2 * normalizedLightness - 1)) * normalizedSaturation;
             var hexagonalHue = hue / 60;
+            var smallestMagnitude = (normalizedLightness - chroma / 2) * 255;
+            var secondLargestComponent = chroma * (1 - Math.abs(_.modulo(hexagonalHue, 2) -1));
+            var secondLargestMagnitude = (secondLargestComponent * 255) + smallestMagnitude;
+            var largestMagnitude = (chroma * 255) + smallestMagnitude;
+
+            //TODO handle undefined case
+            if (hexagonalHue < 1) {
+                return {
+                    red:   largestMagnitude,
+                    green: secondLargestMagnitude,
+                    blue:  smallestMagnitude
+                };
+            }
+            else if (hexagonalHue < 2) {
+                return {
+                    red:   secondLargestMagnitude,
+                    green: largestMagnitude,
+                    blue:  smallestMagnitude
+                };
+            }
+            else if (hexagonalHue < 3) {
+                return {
+                    red:   smallestMagnitude,
+                    green: largestMagnitude,
+                    blue:  secondLargestMagnitude
+                };
+            }
+            else if (hexagonalHue < 4) {
+                return {
+                    red:   smallestMagnitude,
+                    green: secondLargestMagnitude,
+                    blue:  largestMagnitude
+                };
+            }
+            else if (hexagonalHue < 5) {
+                return {
+                    red:   secondLargestMagnitude,
+                    green: smallestMagnitude,
+                    blue:  largestMagnitude
+                };
+            }
+            else {
+                return {
+                    red:   largestMagnitude,
+                    green: smallestMagnitude,
+                    blue:  secondLargestMagnitude
+                };
+            }
         }
     };
 

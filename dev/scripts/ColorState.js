@@ -77,6 +77,17 @@ define(['util', 'convert'], function (_, convert) {
         this.setHexFromRgba();
     };
 
+    ColorState.prototype.setBySaturation = function (saturationString) {
+        this.saturation = Number(saturationString);
+        this.setRgbaFromHsl();
+        this.setHexFromRgba();
+    };
+
+    ColorState.prototype.setByLightness = function (lightnessString) {
+        this.lightness = Number(lightnessString);
+        this.setRgbaFromHsl();
+        this.setHexFromRgba();
+    };
 
     ColorState.prototype.getHexCss = function () {
         return '#' + this.hex;
@@ -85,18 +96,7 @@ define(['util', 'convert'], function (_, convert) {
 
     ColorState.prototype.setHslFromRgba = function() {
         var hueResult = convert.rgbToHue(this.red, this.green, this.blue);
-        var hueIsAmbiguous = hueResult instanceof Array;
-        if (!hueIsAmbiguous)
-            this.hue = hueResult;
-        else {
-            var distancesFromCurrentValue = hueResult.map(function (possibleHue) {
-                return Math.abs(this.hue - possibleHue);
-            }.bind(this));
-            var closetValue = Math.min(distancesFromCurrentValue);
-            var indexOfClosestValue = distancesFromCurrentValue.indexOf(closetValue);
-            return hueResult[indexOfClosestValue];
-
-        }
+        if (!isNaN(hueResult)) this.hue = hueResult;
         this.saturation = convert.rgbToSaturation(this.red, this.green, this.blue);
         this.lightness = convert.rgbToLightness(this.red, this.green, this.blue);
         return this;
@@ -109,7 +109,10 @@ define(['util', 'convert'], function (_, convert) {
 
 
     ColorState.prototype.setRgbaFromHsl = function () {
-
+        var rgbResult = convert.hslToRgb(this.hue, this.saturation, this.lightness);
+        this.red = rgbResult.red;
+        this.green = rgbResult.green;
+        this.blue = rgbResult.blue;
     };
     return ColorState;
 });
