@@ -22,7 +22,13 @@ define(['util'], function (_) {
         },
 
         rgbToHex: function (red, green, blue) {
-            var hexString = Math.round(red).toString(16) + Math.round(green).toString(16) + Math.round(blue).toString(16);
+            var redString = Math.round(red).toString(16);
+            if (redString.length == 1) redString = '0' + redString;
+            var blueString = Math.round(blue).toString(16);
+            if (blueString.length == 1) blueString = '0' + blueString;
+            var greenString = Math.round(green).toString(16);
+            if (greenString.length == 1) greenString = '0' + greenString;
+            var hexString = redString + greenString + blueString;
             return hexString.toUpperCase();
         },
 

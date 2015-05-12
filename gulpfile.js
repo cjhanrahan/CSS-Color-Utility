@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var del = require('del');
 var preprocess = require('gulp-preprocess');
@@ -29,7 +31,7 @@ gulp.task('main', ['clean'], function () {
 });
 
 gulp.task('scripts', ['clean'], function () {
-        
+
     return gulp.src('dev/scripts/!(main).js')
         .pipe(preprocess({
             context: { MODE:'normal' }
@@ -56,7 +58,7 @@ gulp.task('jade', ['clean'], function () {
             data: {includeTests: false}
         }))
         .pipe(gulp.dest('build'));
-    
+
     return gulp.src('dev/html/index.jade')
         .pipe(jade({
             data: {includeTests: true}

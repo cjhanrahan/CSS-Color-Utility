@@ -58,7 +58,8 @@ define (['convert'], function (convert) {
         function testRgbToSaturation(inputRgb, desiredSaturation) {
             var rgbString = getRgbStringFrom(inputRgb);
             it ('should convert ' + rgbString + 'to a saturation of ' + desiredSaturation, function () {
-                var saturationFromConvert = convert.rgbToSaturation(inputRgb.red, inputRgb.green, inputRgb.blue);
+                var saturationFromConvert
+                    = convert.rgbToSaturation(inputRgb.red, inputRgb.green, inputRgb.blue);
                 expect(Math.round(saturationFromConvert)).toEqual(desiredSaturation);
             });
         }
@@ -93,6 +94,11 @@ define (['convert'], function (convert) {
             {
                 hsl: {hue: 235, saturation: 80,  lightness: 34 },
                 rgb: {red: 17,  green: 29,       blue: 156     }
+            },
+            {
+                hsl: {hue: 0,   saturation: 100, lightness: 100},
+                rgb: {red: 255, green: 255,      blue: 255     }
+
             }
         ];
 

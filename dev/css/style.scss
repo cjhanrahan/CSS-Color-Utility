@@ -1,19 +1,39 @@
+html {
+  font-size: 16px;
+}
+
 @font-face {
     font-family: 'ralewaymedium';
-    src: url('fonts/raleway-medium-webfont.eot'),
-         url('fonts/raleway-medium-webfont.woff') format('woff'),
-         url('fonts/raleway-medium-webfont.ttf') format('truetype'),
-         url('fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
+    src: url('../lib/raleway-semibold-webfont.eot'),
+         url('../lib/raleway-semibold-webfont.woff2') format('woff2'),
+         url('../lib/raleway-semibold-webfont.woff') format('woff'),
+         url('../lib/raleway-semibold-webfont.ttf') format('truetype'),
+         url('../lib/raleway-semibold-webfont.svg#ralewaymedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
 body {
   text-align: center;
+  font-family: ralewaymedium;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+label {
+  font-size:  1.25rem;
+}
+
+a {
+  text-decoration: none;
+}
 
 .appContainer {
   display: flex;
@@ -23,8 +43,12 @@ body {
 }
 
 
+.appContainer > div {
+  padding: 1rem;
+}
+
 input[type="text"] {
-  font-size: 16px;
+  font-size: 1rem;
 
   &:focus {
     outline-width: 2px;
@@ -32,7 +56,6 @@ input[type="text"] {
     outline-style: solid;
   }
 }
-
 
 label {
   display: block;
@@ -42,11 +65,11 @@ label {
 .colorValue {
   display: flex;
   flex-flow: row nowrap;
-  width: 20rem;
+  width: 30rem;
   text-align: start;
 
   & > * {
-    margin: 0 0.5rem;
+    margin: 0 1rem;
     display: inline-block;
     box-sizing: border-box;
   }
@@ -59,7 +82,7 @@ label {
 input {
   display: block;
   margin: 2px 0px;
-  width: 100px;
+  width: 5rem;
 }
 
 
@@ -79,4 +102,8 @@ input {
 
 [role = "spacer"] {
   height: 9px;
+}
+
+[data-value-type] + [data-value-type] {
+  padding-top: 0.5rem;
 }
