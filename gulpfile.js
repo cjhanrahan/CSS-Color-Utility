@@ -4,10 +4,9 @@ var gulp = require('gulp');
 var del = require('del');
 var preprocess = require('gulp-preprocess');
 var jade = require('gulp-jade');
-var sass = require('gulp-ruby-sass');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-
+var stylus = require('gulp-stylus');
 
 gulp.task('clean', function (callback) {
     del(['build'], callback);
@@ -67,13 +66,11 @@ gulp.task('jade', ['clean'], function () {
         .pipe(gulp.dest('build'));
 });
 
-
-gulp.task('sass', ['clean'], function () {
-    return sass('dev/css/', {stopOnError: true})
-        .on('error', function (error) { console.log('ZZZ') })
-        .pipe(autoprefixer({browsers: 'last 2 versions'}))
+gulp.task('stylus', ['clean'], function () {
+    gulp.src('dev/css/*.styl')
+        .pipe(stylus())
         .pipe(gulp.dest('./build/css'));
 });
 
 
-gulp.task('default', ['main', 'scripts', 'tests', 'lib', 'jade', 'sass']);
+gulp.task('default', ['main', 'scripts', 'tests', 'lib', 'jade', 'stylus']);
