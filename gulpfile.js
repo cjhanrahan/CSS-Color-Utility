@@ -69,11 +69,11 @@ gulp.task('jade', ['clean'], function () {
 
 
 gulp.task('sass', ['clean'], function () {
-    return sass('dev/css/')
+    return sass('dev/css/', {stopOnError: true})
+        .on('error', function (error) { console.log('ZZZ') })
         .pipe(autoprefixer({browsers: 'last 2 versions'}))
         .pipe(gulp.dest('./build/css'));
 });
 
 
 gulp.task('default', ['main', 'scripts', 'tests', 'lib', 'jade', 'sass']);
-

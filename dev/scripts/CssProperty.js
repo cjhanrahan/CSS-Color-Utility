@@ -24,7 +24,7 @@ define(['util', 'ColorState', 'validate', 'EventListener'],
             inputListeners: {
                 value: [],
                 writable: false,
-            }
+            },
         });
     };
 
@@ -48,10 +48,8 @@ define(['util', 'ColorState', 'validate', 'EventListener'],
                         var newCss = thisProperty.colorState.getHexCss();
                         thisProperty.updateSampleColor(newCss);
                         thisProperty.updateInputs();
-                        app.showValidationText('');
-                    } else {
-                        app.showValidationText(validationResults.reason);
                     }
+                    app.showValidationText(validationResults.reason);
                 };
                 var inputListener = new EventListener('input', inputNode, onInput)
                     .attach();
@@ -59,6 +57,7 @@ define(['util', 'ColorState', 'validate', 'EventListener'],
                 thisProperty.inputListeners.push(inputListener);
             });
         });
+        app.showValidationText(validate.defaultValidReason);
         return this;
     };
 

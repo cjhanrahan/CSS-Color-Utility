@@ -1,5 +1,13 @@
-html {
-  font-size: 16px;
+@media (min-width: 1201px) {
+  html {
+    font-size: 1vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 12px;
+  }
 }
 
 @font-face {
@@ -13,6 +21,7 @@ html {
     font-style: normal;
 }
 
+$textPadding: 1rem;
 
 body {
   text-align: center;
@@ -45,14 +54,15 @@ a {
 
 .appContainer > div {
   padding: 1rem;
+  width: 30rem;
 }
 
 input[type="text"] {
   font-size: 1rem;
 
   &:focus {
-    outline-width: 2px;
-    outline-offset: -2px;
+    outline-width: 0.25rem;
+    outline-offset: -0.25rem;
     outline-style: solid;
   }
 }
@@ -81,28 +91,24 @@ label {
 
 input {
   display: block;
-  margin: 2px 0px;
+  margin: 0.25rem 0;
   width: 5rem;
 }
 
 
 .exampleText {
-  max-width: 200px;
-  padding: 5px;
-  border: 1px solid black;
+    text-align: justify;
+    padding: $textPadding;
+    border: 0.2rem solid black;
 }
 
 
 .validationOutput {
-  border: 1px solid black;
-  width: 200px;
-  min-height: 50px;
+    border: 0.2rem solid black;
+    min-height: 5rem;
+    padding: $textPadding;
 }
 
-
-[role = "spacer"] {
-  height: 9px;
-}
 
 [data-value-type] + [data-value-type] {
   padding-top: 0.5rem;
