@@ -4,9 +4,9 @@ define(['util', 'convert'], function (_, convert) {
 
     var ColorState = function () {
 
-        var valueTypes = [ 
-            'hex', 'red', 'green', 'blue', 'alpha', 
-            'hue', 'saturation', 'lightness'
+        var valueTypes = [
+            'hex', 'red', 'green', 'blue', 'alpha',
+            'hue', 'saturation', 'lightness', 'name'
         ];
 
         valueTypes.forEach(function (valueType) {
@@ -20,8 +20,8 @@ define(['util', 'convert'], function (_, convert) {
 
 
     ColorState.prototype.getValue = function(attributeName) {
-        if (attributeName === 'hex')
-            return this.hex;
+        if (attributeName === 'hex' || attributeName === 'name')
+            return this[attributeName];
         else {
             var exactValue = this[attributeName];
             return Math.round(exactValue);
@@ -44,6 +44,7 @@ define(['util', 'convert'], function (_, convert) {
         this.green = rgbObj.green;
         this.blue = rgbObj.blue;
         this.setHslFromRgba();
+        this.setNameFromRgb();
         return this;
     };
 
@@ -52,6 +53,7 @@ define(['util', 'convert'], function (_, convert) {
         this.red = Number(redString);
         this.setHexFromRgba();
         this.setHslFromRgba();
+        this.setNameFromRgb();
         return this;
     };
 
@@ -60,6 +62,7 @@ define(['util', 'convert'], function (_, convert) {
         this.green = Number(greenString);
         this.setHexFromRgba();
         this.setHslFromRgba();
+        this.setNameFromRgb();
         return this;
     };
 
@@ -68,6 +71,7 @@ define(['util', 'convert'], function (_, convert) {
         this.blue = Number(blueString);
         this.setHexFromRgba();
         this.setHslFromRgba();
+        this.setNameFromRgb();
         return this;
     };
 
@@ -75,18 +79,24 @@ define(['util', 'convert'], function (_, convert) {
         this.hue = Number(hueString);
         this.setRgbaFromHsl();
         this.setHexFromRgba();
+        this.setNameFromRgb();
+        return this;
     };
 
     ColorState.prototype.setBySaturation = function (saturationString) {
         this.saturation = Number(saturationString);
         this.setRgbaFromHsl();
         this.setHexFromRgba();
+        this.setNameFromRgb();
+        return this;
     };
 
     ColorState.prototype.setByLightness = function (lightnessString) {
         this.lightness = Number(lightnessString);
         this.setRgbaFromHsl();
         this.setHexFromRgba();
+        this.setNameFromRgb();
+        return this;
     };
 
     ColorState.prototype.getHexCss = function () {
@@ -114,5 +124,12 @@ define(['util', 'convert'], function (_, convert) {
         this.green = rgbResult.green;
         this.blue = rgbResult.blue;
     };
+
+
+    ColorState.prototype.setNameFromRgb = function () {
+        this.name = convert.rgbToName(this.red, this.green, this.blue);
+    };
     return ColorState;
+
+
 });

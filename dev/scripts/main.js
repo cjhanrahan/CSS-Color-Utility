@@ -7,7 +7,8 @@ requirejs.config({
     'jasmine': '../lib/jasmine-2.1.3/jasmine',
     'jasmine-html': '../lib/jasmine-2.1.3/jasmine-html',
     'custom-boot': '../lib/jasmine-2.1.3/custom-boot',
-    'tests': '../tests'
+    'tests': '../tests',
+    'text': '../lib/text'
   },
 
   shim: {

@@ -1,6 +1,6 @@
 'use strict';
 
-define(['util'], function (_) {
+define(['util', 'colorNames'], function (_, colorNames) {
     var convert = {
 
         hexToRgb: function(hexString) {
@@ -107,6 +107,27 @@ define(['util'], function (_) {
             return (1/2) * (minColor + maxColor) / 255 * 100;
         },
 
+
+        rgbToName: function(currentRed, currentGreen, currentBlue) {
+            var minColorDistance = Infinity;
+            var minColorName = null;
+            for (var colorName in colorNames) {
+                var colorRgb = colorNames[colorName];
+                var redDistance = colorRgb.red - currentRed;
+                var greenDistance = colorRgb.green - currentGreen;
+                var blueDistance = colorRgb.blue - currentBlue;
+                var distance = Math.sqrt(
+                    Math.pow(redDistance, 2) +
+                    Math.pow(greenDistance, 2) +
+                    Math.pow(blueDistance, 2)
+                );
+                if (distance < minColorDistance) {
+                    minColorDistance = distance;
+                    minColorName = colorName;
+                }
+            }
+            return minColorName;
+        },
 
         hslToRgb: function(hue, saturation, lightness) {
             var normalizedSaturation = saturation / 100;
