@@ -1,0 +1,91 @@
+@media (min-width: 1201px) {
+  html {
+    font-size: 1vw;
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 12px;
+  }
+}
+@font-face {
+  font-family: 'ralewaymedium';
+  src: url("../lib/raleway-semibold-webfont.eot"), url("../lib/raleway-semibold-webfont.woff2") format('woff2'), url("../lib/raleway-semibold-webfont.woff") format('woff'), url("../lib/raleway-semibold-webfont.ttf") format('truetype'), url("../lib/raleway-semibold-webfont.svg#ralewaymedium") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  text-align: center;
+  font-family: ralewaymedium;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+label {
+  font-size: 1.25rem;
+}
+a {
+  text-decoration: none;
+}
+.appContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.appContainer > div {
+  padding: 1rem;
+  width: 30rem;
+}
+input[type="text"] {
+  font-size: 1rem;
+}
+input[type="text"]:focus {
+  outline-width: 0.25rem;
+  outline-offset: -0.25rem;
+  outline-style: solid;
+}
+label {
+  display: block;
+}
+.colorValue {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 30rem;
+  text-align: start;
+}
+.colorValue > * {
+  margin: 0 1rem;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.colorValue > :first-child {
+  width: 20%;
+}
+.colorValue > :nth-child(2) {
+  width: 45%;
+}
+.colorValue > :last-child {
+  width: 35%;
+}
+input {
+  display: block;
+  margin: 0.25rem 0;
+  width: 5rem;
+}
+.exampleText {
+  text-align: justify;
+  padding: 1rem;
+  border: 0.2rem solid #000;
+}
+.validationOutput {
+  border: 0.2rem solid #000;
+  min-height: 5rem;
+  padding: 1rem;
+}
+[data-value-type] + [data-value-type] {
+  padding-top: 0.5rem;
+}
